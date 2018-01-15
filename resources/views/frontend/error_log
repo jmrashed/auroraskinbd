@@ -1,0 +1,85 @@
+[24-Jun-2017 19:11:33 America/Chicago] PHP Notice:  Undefined variable: gallery in /home/boishakhi/public_html/resources/views/frontend/album.blade.php on line 12
+[24-Jun-2017 19:11:33 America/Chicago] PHP Notice:  Undefined variable: gallery in /home/boishakhi/public_html/resources/views/frontend/album.blade.php on line 19
+[24-Jun-2017 19:11:33 America/Chicago] PHP Notice:  Undefined variable: gallery in /home/boishakhi/public_html/resources/views/frontend/album.blade.php on line 57
+[24-Jun-2017 19:11:33 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function links() on null in /home/boishakhi/public_html/resources/views/frontend/album.blade.php:57
+Stack trace:
+#0 {main}
+  thrown in /home/boishakhi/public_html/resources/views/frontend/album.blade.php on line 57
+[24-Jun-2017 19:11:59 America/Chicago] PHP Notice:  Undefined variable: advertizing8 in /home/boishakhi/public_html/resources/views/frontend/english.blade.php on line 27
+[24-Jun-2017 19:12:10 America/Chicago] PHP Notice:  Undefined variable: advertizing5 in /home/boishakhi/public_html/resources/views/frontend/error.blade.php on line 26
+[24-Jun-2017 19:12:19 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Request' not found in /home/boishakhi/public_html/resources/views/frontend/fontend_mastar.blade.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/boishakhi/public_html/resources/views/frontend/fontend_mastar.blade.php on line 18
+[24-Jun-2017 19:12:25 America/Chicago] PHP Notice:  Undefined variable: gallery in /home/boishakhi/public_html/resources/views/frontend/gallery.blade.php on line 12
+[24-Jun-2017 19:12:25 America/Chicago] PHP Notice:  Undefined variable: gallery in /home/boishakhi/public_html/resources/views/frontend/gallery.blade.php on line 19
+[24-Jun-2017 19:12:25 America/Chicago] PHP Notice:  Undefined variable: gallery in /home/boishakhi/public_html/resources/views/frontend/gallery.blade.php on line 46
+[24-Jun-2017 19:12:25 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function links() on null in /home/boishakhi/public_html/resources/views/frontend/gallery.blade.php:46
+Stack trace:
+#0 {main}
+  thrown in /home/boishakhi/public_html/resources/views/frontend/gallery.blade.php on line 46
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: top_news in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 21
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: advertizing2 in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 92
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: top_news in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 130
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: advertizing3 in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 186
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: top_news in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 219
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: binodhon in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 279
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: video in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 429
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: gallery in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 517
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: bishesh_ayojon in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 584
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: latest in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 628
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: nirbachito in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 674
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: vote in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 726
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: bangladesh in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 830
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: world in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 881
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: sports in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 930
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: health in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 987
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: advertizing4 in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 1046
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: advertizing5 in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 1090
+[24-Jun-2017 19:12:33 America/Chicago] PHP Notice:  Undefined variable: advertizing6 in /home/boishakhi/public_html/resources/views/frontend/index.blade.php on line 1134
+[24-Jun-2017 19:12:42 America/Chicago] PHP Notice:  Undefined variable: all_category_news in /home/boishakhi/public_html/resources/views/frontend/news_categories.blade.php on line 15
+[24-Jun-2017 19:12:42 America/Chicago] PHP Notice:  Undefined variable: all_category_news in /home/boishakhi/public_html/resources/views/frontend/news_categories.blade.php on line 70
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined variable: details in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 23
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 23
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined offset: 1 in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 24
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined offset: 2 in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 24
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined offset: 3 in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 26
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined offset: 1 in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 27
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined variable: details in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 35
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 35
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined variable: details in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 38
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 38
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined variable: advertizing9 in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 67
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined variable: details in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 106
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 106
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined variable: details in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 109
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 109
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Undefined variable: details in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 112
+[24-Jun-2017 19:12:56 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 112
+[24-Jun-2017 19:12:56 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'URL' not found in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/boishakhi/public_html/resources/views/frontend/news_details.blade.php on line 113
+[24-Jun-2017 19:13:12 America/Chicago] PHP Notice:  Undefined variable: all_category_news in /home/boishakhi/public_html/resources/views/frontend/news_search.blade.php on line 15
+[24-Jun-2017 19:13:12 America/Chicago] PHP Notice:  Undefined variable: all_category_news in /home/boishakhi/public_html/resources/views/frontend/news_search.blade.php on line 70
+[24-Jun-2017 19:13:12 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function links() on null in /home/boishakhi/public_html/resources/views/frontend/news_search.blade.php:70
+Stack trace:
+#0 {main}
+  thrown in /home/boishakhi/public_html/resources/views/frontend/news_search.blade.php on line 70
+[24-Jun-2017 19:13:21 America/Chicago] PHP Notice:  Undefined variable: advertizing8 in /home/boishakhi/public_html/resources/views/frontend/other_page_rightside.blade.php on line 5
+[24-Jun-2017 19:13:21 America/Chicago] PHP Notice:  Undefined variable: latest_news in /home/boishakhi/public_html/resources/views/frontend/other_page_rightside.blade.php on line 78
+[24-Jun-2017 19:13:21 America/Chicago] PHP Notice:  Undefined variable: popular in /home/boishakhi/public_html/resources/views/frontend/other_page_rightside.blade.php on line 122
+[24-Jun-2017 19:13:34 America/Chicago] PHP Notice:  Undefined variable: video in /home/boishakhi/public_html/resources/views/frontend/video.blade.php on line 12
+[24-Jun-2017 19:13:34 America/Chicago] PHP Notice:  Undefined variable: video in /home/boishakhi/public_html/resources/views/frontend/video.blade.php on line 18
+[24-Jun-2017 19:13:34 America/Chicago] PHP Notice:  Undefined variable: video in /home/boishakhi/public_html/resources/views/frontend/video.blade.php on line 50
+[24-Jun-2017 19:13:34 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function links() on null in /home/boishakhi/public_html/resources/views/frontend/video.blade.php:50
+Stack trace:
+#0 {main}
+  thrown in /home/boishakhi/public_html/resources/views/frontend/video.blade.php on line 50
+[24-Jun-2017 19:13:43 America/Chicago] PHP Notice:  Undefined variable: vote in /home/boishakhi/public_html/resources/views/frontend/vote_result.blade.php on line 12
+[24-Jun-2017 19:13:43 America/Chicago] PHP Notice:  Undefined variable: vote in /home/boishakhi/public_html/resources/views/frontend/vote_result.blade.php on line 15
+[24-Jun-2017 19:13:43 America/Chicago] PHP Notice:  Undefined variable: vote in /home/boishakhi/public_html/resources/views/frontend/vote_result.blade.php on line 60
+[24-Jun-2017 19:13:43 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function links() on null in /home/boishakhi/public_html/resources/views/frontend/vote_result.blade.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/boishakhi/public_html/resources/views/frontend/vote_result.blade.php on line 60

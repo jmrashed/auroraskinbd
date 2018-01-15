@@ -1,0 +1,232 @@
+@extends('frontend.fontend_mastar')
+@section('contant')
+<?php 
+$engtime = array(1,2,3,4,5,6,7,8,9,0,'January','February','March','April','May','June','July','August','September','October','November','December','Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday');
+
+$bangtime = array('১','২','৩','৪','৫','৬','৭','৮','৯','০','জানুয়ারী','ফেব্রুয়ারী','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর','শনিবার','রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার');
+?>
+<div class="row">
+    <div class="col-md-12 cntnt_top_margin">
+        <div class="row">
+            <div class="col-md-9 col-sm-7">
+                <div class="archive-title">Browse Category by <span class="archive-name">{{$categories - > menutitle}}</span></div>
+                <!-- start post -->
+                        <?php
+                        if(sizeof($all_category_news)>0)
+						{
+							foreach($all_category_news as $lastNews)
+							{	
+						?>
+                <article class="post">
+                    <div class="post-thumb">
+                        @if($lastNews->news_image!='')
+                        <a href="{{URL('/news-details/'.$lastNews - > newsid)}}"><img src="{{ URL::asset('uploads/news/'.$lastNews->news_image)}}" alt=""></a>
+                        @endif
+
+                        <a href="{{URL('/news-details/'.$lastNews - > newsid)}}" class="post-thumb-overlay text-center">
+                            <div class="text-uppercase text-center"><i class="fa fa-search"></i></div>
+                        </a>
+                    </div>
+                    <div class="post_content_nws_dtls">
+                        <div class="post-header">
+                            <h2><a href="{{URL('/news-details/'.$lastNews - > newsid)}}"><?php echo $lastNews->newstitle;?></a> <span class="pull-right">
+                            <?php
+							//$ex 		= explode(' ',$lastNews->newsupdatetime);
+							//$viewdate 	= $ex[0].' '.$ex[1].' '.$ex[2];
+
+							//echo $cdate = str_replace($engtime, $bangtime, $viewdate);
+							?>
+                                </span></h2>
+                        </div>
+                        <div class="entry-content">
+                            <p>
+                            <?php 
+								$busRow = strip_tags($lastNews->newsdetails);
+								if (strlen($busRow) > 900)
+								{
+									$stringCuth = substr($busRow, 0, 900);
+									$busRow 	= substr($stringCuth, 0, strrpos($stringCuth, ' ')).'...'; 
+								}
+								echo $busRow;
+							 ?>	
+                            </p>
+                            <div class="continue-reading text-uppercase">
+                                <a href="{{URL('/news-details/'.$lastNews - > newsid)}}" class="more-link text-center">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                        <?php 
+							}
+						}
+						?>
+
+                <div class="post-pagination text-center">
+                            <?php if(sizeof($all_category_news)>0){echo $all_category_news->links();}?>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 col-sm-5">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="gogl_ad_area"><img src="{{ URL::asset('frontend_source/assets/images/google_ad.jpg') }}" border="0"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <!-- start sidebar -->
+                <div class="sidebar">
+
+                        <?php /*?><aside class="widget about-me-widget"><!-- start single widget -->
+    
+                            <div class="about-me-img">
+                                <img src="{{ URL::asset('frontend_source/assets/images/aboout-me.jpg') }}" alt="" class="img-me">
+                            </div>
+                            <div class="about-me-content">
+                                <h3>হোয়াইট হাউসে চোখ জাকারবার্গের?</h3>
+    
+                                <p>মার্ক জাকারবার্গের চোখ কি এখন হোয়াইট হাউসের দিকে? সামাজিক যোগাযোগমাধ্যম ফেসবুকের এই অন্যতম প্রতিষ্ঠাতার ইদানীংকালের কার্যক্রম সেই দিকে ইঙ্গিত করছে বলে মনে করছেন বিশ্লেষকেরা।
+কদিন আগেই জানালেন ঈশ্বরে বিশ্বাসের কথা। আপনি কি নাস্তিক নন? বড়দিনে করা তাঁর পোস্টের নিচে একজন মন্তব্যকারীর এমন প্রশ্নে জাকারবার্গ লেখেন, 'না।</p>
+                            </div>
+    
+                        </aside><?php */?>
+
+                    <!-- end single widget -->
+                    <aside class="widget"><!-- start single widget -->
+                        <div class="social-share">
+                            <h3 class="widget-title text-uppercase">Subscribe & Follow</h3>
+                            <ul class="">
+                                <li><a class="s-facebook" href="https://www.facebook.com/Boishakhimedia/"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="s-twitter" href="https://twitter.com/Boishakhimedia"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="s-google-plus" href="https://www.google.com/+BoishakhiTvmedia"><i class="fa fa-google-plus"></i></a></li>
+                                <!--<li><a class="s-linkedin" href=""><i class="fa fa-linkedin"></i></a></li>-->
+                                <li><a class="s-youtube" href="http://www.youtube.com/boishakhitvbd"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </aside><!-- end single widget -->
+                    <aside class="widget news-letter"><!-- start single widget -->
+                        <h3 class="widget-title text-uppercase">Stay updated</h3>
+                        <p>Subscribe to anewsletter and stay updated with our special offers and the latest free themes
+                            released.</p>
+                        <form action="#" name="studentForm" ng-app = "mainApp" ng-controller = "studentController">
+                            <input type="email" placeholder="Your e-mail" id="subscribe" name="subscribe" ng-model="subscribe" required>
+                            <span style = "color:red" ng-show = "studentForm.subscribe.$dirty && studentForm.subscribe.$invalid">
+                                <span ng-show = "studentForm.subscribe.$error.required">Email is required.</span>
+                            </span>
+                            <input type="button" value="Subscribe Now" class="text-uppercase text-center btn btn-subscribe" disabled="disabled" ng-disabled = "studentForm.subscribe.$invalid" onclick="subscribeNews()">
+                            <div id="sc_show"></div>
+                        </form>
+                    </aside><!-- end single widget -->
+                    <aside class="widget p-post-widget">
+                        <h3 class="widget-title text-uppercase">Latest Posts</h3>
+
+    						<?php 
+							$n=0;
+							if(sizeof($latest_news)>0)
+							{
+								foreach($latest_news as $lastNews)
+								{
+									if($lastNews->news_image!='')
+									{
+										if($n<=3)
+										{
+							?>
+                        <div class="popular-post">
+                            <a href="{{URL('/news-details/'.$lastNews - > newsid)}}" class="popular-img">
+                                <img src="{{ URL::asset('uploads/news/'.$lastNews->news_image)}}" class="side_nw_pix_img" alt="" border="0">
+                                <div class="p-overlay"></div>
+                            </a>
+                            <div class="p-content">
+                                <a href="{{URL('/news-details/'.$lastNews - > newsid)}}">{{$lastNews - > newstitle}}</a>
+                                <span class="p-date">
+                                        <?php
+                                        $ex = explode(' ',$lastNews->newsupdatetime);
+                                        $viewdate = $ex[0].' '.$ex[1].' '.$ex[2];
+    
+                                        echo $cdate = str_replace($engtime, $bangtime, $viewdate);
+                                        ?>
+                                </span>
+                            </div>
+                        </div>
+                            <?php 
+										}
+									}
+								$n++;}
+							}
+							?>
+
+                    </aside>
+                    <aside class="widget"><!-- start single widget -->
+                        <h3 class="widget-title text-uppercase">Popular Posts</h3>
+
+                            <?php 
+							if(sizeof($popular)>0)
+							{
+								foreach($popular as $lastNews)
+								{
+							?>
+                        <div class="thumb-latest-posts">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="{{URL('/news-details/'.$lastNews - > newsid)}}" class="popular-img">
+                                        <img src="{{ URL::asset('uploads/news/'.$lastNews->news_image)}}" class="last_nws_img" alt="" border="0">
+                                        <div class="p-overlay"></div>
+                                    </a>
+                                </div>
+                                <div class="p-content">
+                                    <h3><a href="{{URL('/news-details/'.$lastNews - > newsid)}}">{{$lastNews - > newstitle}}</a></h3>
+                                    <span class="p-date">
+                                    <?php
+									$ex = explode(' ',$lastNews->newsupdatetime);
+									$viewdate = $ex[0].' '.$ex[1].' '.$ex[2];
+
+									echo $cdate = str_replace($engtime, $bangtime, $viewdate);
+									?>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                            <?php 
+								}
+							}								
+							?>
+
+                    </aside><!-- end single widget -->
+
+                    <!--<aside class="widget category-post-no">
+                        <h3 class="widget-title text-uppercase">আরও সংবাদ</h3>
+                        <ul>
+                            <li>
+                                <a href="">Food &amp; Drinks</a>
+                                <span class="post-count pull-right"> 2</span>
+                            </li>
+                            <li>
+                                <a href="">Travel</a>
+                                <span class="post-count pull-right"> 4</span>
+                            </li>
+                            <li>
+                                <a href="">Business</a>
+                                <span class="post-count pull-right"> 2</span>
+                            </li>
+                            <li>
+                                <a href="">Story</a>
+                                <span class="post-count pull-right"> 6</span>
+                            </li>
+                            <li>
+                                <a href="">DIY &amp; Tips</a>
+                                <span class="post-count pull-right"> 8</span>
+                            </li>
+                            <li>
+                                <a href="">Lifestyle</a>
+                                <span class="post-count pull-right"> 7</span>
+                            </li>
+                        </ul>
+                    </aside>-->
+
+                </div>
+                <!-- end sidebar -->
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

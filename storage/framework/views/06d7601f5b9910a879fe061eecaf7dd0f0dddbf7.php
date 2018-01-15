@@ -1,6 +1,4 @@
-@extends('frontend.fontend_mastar')
-
-@section('contant')  
+<?php $__env->startSection('contant'); ?>  
 
 
 <?php
@@ -33,12 +31,12 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                             <div class="cntnt_box">
                                 <article class="post list-post post-grid" style="margin-bottom: 5px !important">
                                     <div class="post-thumb">
-                                        @if($lastNews->news_image!='')
-                                        <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}"><img
-                                                src="{{ URL::asset('uploads/news/'.$lastNews->news_image)}}"
+                                        <?php if($lastNews->news_image!=''): ?>
+                                        <a href="<?php echo e(URL('/'.$lastNews->newsid.'/'.$newsslugfilter)); ?>"><img
+                                                src="<?php echo e(URL::asset('uploads/news/'.$lastNews->news_image)); ?>"
                                                 class="grid_nws_img1" alt="" border="0"></a>
-                                        @endif
-                                        <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}"
+                                        <?php endif; ?>
+                                        <a href="<?php echo e(URL('/'.$lastNews->newsid.'/'.$newsslugfilter)); ?>"
                                            class="post-thumb-overlay text-center">
                                             <div class="text-up
                                                  case text-center"><i class="fa fa-search"></i></div>
@@ -49,12 +47,12 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                         <div class="post-header">
                                             <?php if ($lastNews->news_sub_title_1) { ?>
                                                 <p class=""  style="margin: 0 0 0px;">
-                                                    <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}"><?php echo $lastNews->news_sub_title_1; ?></a>
+                                                    <a href="<?php echo e(URL('/'.$lastNews->newsid.'/'.$newsslugfilter)); ?>"><?php echo $lastNews->news_sub_title_1; ?></a>
                                                 </p>
                                             <?php } ?>
 
                                             <p class="newstitle" style="margin: 0 0 0px;">
-                                                <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}"><?php echo $lastNews->newstitle; ?></a>
+                                                <a href="<?php echo e(URL('/'.$lastNews->newsid.'/'.$newsslugfilter)); ?>"><?php echo $lastNews->newstitle; ?></a>
                                             </p>
 
                                         </div>
@@ -144,7 +142,7 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                     <div class="p-content">
 
                                         <h3>
-                                            <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}">{{$lastNews->newstitle}}</a>
+                                            <a href="<?php echo e(URL('/'.$lastNews->newsid.'/'.$newsslugfilter)); ?>"><?php echo e($lastNews->newstitle); ?></a>
                                         </h3>
 
                                         <span>
@@ -212,7 +210,7 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                     <div class="p-content">
 
                                         <h3>
-                                            <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}">{{$lastNews->newstitle}}</a>
+                                            <a href="<?php echo e(URL('/'.$lastNews->newsid.'/'.$newsslugfilter)); ?>"><?php echo e($lastNews->newstitle); ?></a>
                                         </h3>
 
                                         <span>
@@ -264,7 +262,9 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('frontend.fontend_mastar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -12,7 +12,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="{{ URL::asset('frontend_source/images/logo.png') }}">
+        <link rel="shortcut icon" href="<?php echo e(URL::asset('frontend_source/images/logo.png')); ?>">
 
         <?php
         if (Request::segment(1) != '') {
@@ -20,17 +20,17 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
             if (Request::segment(1) != 'news' && Request::segment(1) != 'live' && Request::segment(1) != 'search' && Request::segment(1) != 'albums-news' && Request::segment(1) != 'news-video' && Request::segment(1) != 'result-vote' && Request::segment(1) != 'english' && Request::segment(1) != 'news-gallery' && Request::segment(1) != 'newssub') {
                 ?>
 
-                <meta property="og:title" content="{{$details->newsseotitle}}"/>
-                <meta property="og:image" content="{{ URL::asset('uploads/news/'.$details->news_image)}}"/>
-                <meta property="og:description" content="{{$details->newsseodetails}}"/>
-                <meta name="keywords" content="{{$details->newsseometatag}}"/>
+                <meta property="og:title" content="<?php echo e($details->newsseotitle); ?>"/>
+                <meta property="og:image" content="<?php echo e(URL::asset('uploads/news/'.$details->news_image)); ?>"/>
+                <meta property="og:description" content="<?php echo e($details->newsseodetails); ?>"/>
+                <meta name="keywords" content="<?php echo e($details->newsseometatag); ?>"/>
                 <meta property="og:site_name" content="Boishakhionline"/>
 
                 <?php
             }
         }
         ?>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
         <!-- Page Title -->
         <title><?php
@@ -41,12 +41,17 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
             }
             ?></title>
         <!-- Styles -->
-        {!!Html::style('frontend_source/assets/css/font-awesome.min.css')!!}
+        <?php echo Html::style('frontend_source/assets/css/font-awesome.min.css'); ?>
 
-        {!!Html::style('frontend_source/assets/css/bootstrap.min.css')!!}
-        {!!Html::style('frontend_source/assets/css/magnific-popup.css')!!}
-        {!!Html::style('frontend_source/assets/css/style.css')!!}
-        {!!Html::style('frontend_source/assets/css/responsive.css')!!}
+
+        <?php echo Html::style('frontend_source/assets/css/bootstrap.min.css'); ?>
+
+        <?php echo Html::style('frontend_source/assets/css/magnific-popup.css'); ?>
+
+        <?php echo Html::style('frontend_source/assets/css/style.css'); ?>
+
+        <?php echo Html::style('frontend_source/assets/css/responsive.css'); ?>
+
 
         <style>
             .glyph {
@@ -74,7 +79,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2 logo">
-                        <a href="{{URL('/')}}"><img src="{{ URL::asset('frontend_source/assets/images/logo.png')}}" border="0"/></a>
+                        <a href="<?php echo e(URL('/')); ?>"><img src="<?php echo e(URL::asset('frontend_source/assets/images/logo.png')); ?>" border="0"/></a>
                     </div>
                     <div class="col-sm-10 lst_updte">
                         
@@ -102,15 +107,18 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                         </div> 
 
                         <div class="col-md-3 col-sm-3 col-xs-12 bar_position pull-right">
-                            {!! Form::open(array('url' => 'search', 'method' => 'get','name' => 'studentForm','novalidate','files' => true)) !!}
-                            {{ csrf_field() }}
+                            <?php echo Form::open(array('url' => 'search', 'method' => 'get','name' => 'studentForm','novalidate','files' => true)); ?>
+
+                            <?php echo e(csrf_field()); ?>
+
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="খোঁজ করুন..." required>
                                 <span class="input-group-btn">
                                     <button class="btn btn-default form-control" type="submit" style="background: #ee1c27; border: 1px solid red;"><i class="fa fa-search" style="color: #007a48; font-weight: bold; font-size: 19px;"></i></button>
                                 </span>
                             </div>
-                            {!! Form::close() !!}
+                            <?php echo Form::close(); ?>
+
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -123,7 +131,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                         <div class="row">
                             <nav id="nav">
                                 <ul class="">
-                                    <li><a href="{{URL('/')}}"><i class="fa fa-home"></i></a></li>
+                                    <li><a href="<?php echo e(URL('/')); ?>"><i class="fa fa-home"></i></a></li>
                                     <?php
                                     $i = 0;
                                     if (sizeof($menu) > 0) {
@@ -134,7 +142,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                                                 $newsslug = str_replace(' ', '-', $newsslug);
                                                 ?>
                                                 <li>
-                                                    <a href="{{URL('/news/'.$menuactive->menuid.'/'.$newsslug)}}"><?php echo $menuactive->menutitle; ?> </a>
+                                                    <a href="<?php echo e(URL('/news/'.$menuactive->menuid.'/'.$newsslug)); ?>"><?php echo $menuactive->menutitle; ?> </a>
                                                     <ul>
                                                         <?php
                                                         $submenulist = App\models\MenuModel::where('menuparent', $menuid)->where('menuparent', '!=', 'none')->get();
@@ -143,15 +151,15 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                                                         if (sizeof($submenulist) > 0) {
                                                             ?>
 
-                                                            @foreach ($submenulist as $submenulisting)
-                                                            @php
+                                                            <?php $__currentLoopData = $submenulist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submenulisting): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php
                                                             $newsslug = strip_tags($submenulisting->menutitle);
                                                             $newsslug = str_replace(' ', '-', $newsslug);
-                                                            @endphp
+                                                            ?>
                                                             <li>
-                                                                <a href="{{URL('/newssub/'.$submenulisting->menuid.'/'.$newsslug)}}">{{ $submenulisting->menutitle }}</a>
+                                                                <a href="<?php echo e(URL('/newssub/'.$submenulisting->menuid.'/'.$newsslug)); ?>"><?php echo e($submenulisting->menutitle); ?></a>
                                                             </li>
-                                                            @endforeach
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                             <?php
                                                         }
                                                         ?>
@@ -187,26 +195,26 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                                                 ?>
 
                                                 <li>
-                                                    <a href="{{URL('/news/'.$menuactive->menuid.'/'.$newsslug)}}"><?php echo $menuactive->menutitle; ?> </a>
+                                                    <a href="<?php echo e(URL('/news/'.$menuactive->menuid.'/'.$newsslug)); ?>"><?php echo $menuactive->menutitle; ?> </a>
                                                     <ul>
-                                                        @php
+                                                        <?php
                                                         $submenulist = App\models\MenuModel::where('menuparent',$menuactive->menuid)->where('menuparent', '!=', 'none')->get();
 
-                                                        @endphp
+                                                        ?>
 
                                                         <?php
                                                         if (sizeof($submenulist) > 0) {
                                                             ?>
 
-                                                            @foreach ($submenulist as $submenulisting)
-                                                            @php
+                                                            <?php $__currentLoopData = $submenulist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submenulisting): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php
                                                             $newsslug = strip_tags($submenulisting->menutitle);
                                                             $newsslug = str_replace(' ', '-', $newsslug);
-                                                            @endphp
+                                                            ?>
                                                             <li>
-                                                                <a href="{{URL('/newssub/'.$submenulisting->menuid.'/'.$newsslug)}}">{{ $submenulisting->menutitle }}</a>
+                                                                <a href="<?php echo e(URL('/newssub/'.$submenulisting->menuid.'/'.$newsslug)); ?>"><?php echo e($submenulisting->menutitle); ?></a>
                                                             </li>
-                                                            @endforeach
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                             <?php
                                                         }
                                                         ?>
@@ -233,8 +241,8 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                         <nav class="navbar main-menu">
                             <div class="navbar-header">
                                 <div class="mobil_live_btn">
-                                    <a href="{{URL('/')}}"><img style="width:82px; height:54px; border:none;"
-                                                                    src="{{ URL::asset('frontend_source/assets/images/logo.png')}}">
+                                    <a href="<?php echo e(URL('/')); ?>"><img style="width:82px; height:54px; border:none;"
+                                                                    src="<?php echo e(URL::asset('frontend_source/assets/images/logo.png')); ?>">
                                     </a>
                                 </div>
                                 <button type="button" style="background:#FFF;" class="navbar-toggle collapsed"
@@ -247,7 +255,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                             </div>
                             <div id="myNavbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="{{URL('/')}}">Home</a></li>
+                                    <li><a href="<?php echo e(URL('/')); ?>">Home</a></li>
 
                                     <?php
                                     $i = 0;
@@ -258,21 +266,21 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                                                 $newsslug = str_replace(' ', '-', $newsslug);
                                                 ?>
                                                 <li class="dropdown">
-                                                    <a href="{{URL('/news/'.$menuactive->menuid.'/'.$newsslug)}}"><?php echo $menuactive->menutitle; ?></a>
+                                                    <a href="<?php echo e(URL('/news/'.$menuactive->menuid.'/'.$newsslug)); ?>"><?php echo $menuactive->menutitle; ?></a>
                                                     <ul class="dropdown-menu">
-                                                        @php
+                                                        <?php
                                                         $submenulist = App\models\MenuModel::where('menuparent',$menuactive->menuid)->where('menuparent', '!=', 'none')->get();
 
-                                                        @endphp
-                                                        @foreach ($submenulist as $submenulisting)
-                                                        @php
+                                                        ?>
+                                                        <?php $__currentLoopData = $submenulist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submenulisting): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php
                                                         $newsslug = strip_tags($submenulisting->menutitle);
                                                         $newsslug = str_replace(' ', '-', $newsslug);
-                                                        @endphp
+                                                        ?>
                                                         <li>
-                                                            <a href="{{URL('/newssub/'.$submenulisting->menuid.'/'.$newsslug)}}">{{ $submenulisting->menutitle }}</a>
+                                                            <a href="<?php echo e(URL('/newssub/'.$submenulisting->menuid.'/'.$newsslug)); ?>"><?php echo e($submenulisting->menutitle); ?></a>
                                                         </li>
-                                                        @endforeach
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                                     </ul>
                                                 </li>
@@ -293,7 +301,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                  
 
                 <!-- start main content -->
-                @yield('contant')
+                <?php echo $__env->yieldContent('contant'); ?>
                 <!-- end main content -->
 
 
@@ -338,10 +346,11 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                         <aside class="tweet-post">
                             <h3 class="footer-title text-uppercase"> Login </h3>
                             <form class="form-horizontal login-form" role="form" method="POST"
-                                  action="{{ url('/admin/login') }}">
-                                {{ csrf_field() }}
+                                  action="<?php echo e(url('/admin/login')); ?>">
+                                <?php echo e(csrf_field()); ?>
+
                                 <div class="form-group">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"
+                                    <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>"
                                            required placeholder="Email">
 
                                 </div>
@@ -366,10 +375,10 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-left">
-                                                @if(Session::has('sorry'))
+                                                <?php if(Session::has('sorry')): ?>
                                                 <div class="alert alert-danger"
-                                                     style="text-align: center">  {!!Session::get('sorry')!!}</div>
-                                                @endif
+                                                     style="text-align: center">  <?php echo Session::get('sorry'); ?></div>
+                                                <?php endif; ?>
                                                 <!--<a href="#" tabindex="5" class="forgot-password">Forgot Password?</a>-->
                                             </div>
                                         </div>
@@ -394,13 +403,13 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                                         if ($menuactive->menuid == 69) {
                                             ?>
                                             <li role="presentation">
-                                                <a href="{{URL('/news/rashifol/'.$menuactive->menuid.'/'.$newsslugfilter)}}"><?php echo $menuactive->menutitle; ?></a>
+                                                <a href="<?php echo e(URL('/news/rashifol/'.$menuactive->menuid.'/'.$newsslugfilter)); ?>"><?php echo $menuactive->menutitle; ?></a>
                                             </li>
 
 
             <?php } else { ?>
 
-                                            <li role="presentation"><a href="{{URL('/news/'.$menuactive->menuid.'/'.$newsslugfilter)}}"><?php echo $menuactive->menutitle; ?></a>
+                                            <li role="presentation"><a href="<?php echo e(URL('/news/'.$menuactive->menuid.'/'.$newsslugfilter)); ?>"><?php echo $menuactive->menutitle; ?></a>
                                             </li>
                                             <?php
                                         }
@@ -414,7 +423,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                     <div class="col-md-12">
                         <div class="copyright-area">
                             <div class="copy-text pull-left">
-                                <p>&copy; 2017 All Rights Reserved, <a href="{{URL('/')}}"> auroraskinbd.com </a>, Developed by 
+                                <p>&copy; 2017 All Rights Reserved, <a href="<?php echo e(URL('/')); ?>"> auroraskinbd.com </a>, Developed by 
                                     <a href="http://skybare.com/" target="_blank">Skybare IT
                                     </a></p>
                             </div>
@@ -441,7 +450,8 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     </footer>
     <!-- end footer area -->
 
-    {!!Html::script('frontend_source/assets/js/jquery.min.js')!!}
+    <?php echo Html::script('frontend_source/assets/js/jquery.min.js'); ?>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
     <script>
@@ -465,7 +475,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
                                                  $.ajax({
                                                      method: "get",
-                                                     url: "{{url('commentsadd')}}",
+                                                     url: "<?php echo e(url('commentsadd')); ?>",
                                                      data: {message: message, name: name, email: email, newsid: newsid, replyid: replyid}
                                                  }).done(function (response) {
                                                      $('#msg_show').show();
@@ -488,7 +498,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
                                                  $.ajax({
                                                      method: "get",
-                                                     url: "{{url('subscribe')}}",
+                                                     url: "<?php echo e(url('subscribe')); ?>",
                                                      data: {subscribe: subscribe}
                                                  }).done(function (response) {
                                                      if (response == 1) {
@@ -586,7 +596,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
             setTimeout(function () {
 
-                window.location.href = "{{URL('/')}}";
+                window.location.href = "<?php echo e(URL('/')); ?>";
 
             }, 5000);
 
@@ -594,10 +604,14 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         <?php
     }
     ?>
-    {!!Html::script('frontend_source/assets/js/bootstrap.min.js')!!}
-    {!!Html::script('frontend_source/assets/js/jquery.magnific-popup.min.js')!!}
-    {!!Html::script('frontend_source/assets/js/jquery.scrollUp.min.js')!!}
-    {!!Html::script('frontend_source/assets/js/main.js')!!}
+    <?php echo Html::script('frontend_source/assets/js/bootstrap.min.js'); ?>
+
+    <?php echo Html::script('frontend_source/assets/js/jquery.magnific-popup.min.js'); ?>
+
+    <?php echo Html::script('frontend_source/assets/js/jquery.scrollUp.min.js'); ?>
+
+    <?php echo Html::script('frontend_source/assets/js/main.js'); ?>
+
 
 </body>
 </html>

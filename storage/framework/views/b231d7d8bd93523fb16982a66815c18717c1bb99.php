@@ -1,6 +1,4 @@
-@extends('frontend.fontend_mastar')
-
-@section('contant')  
+<?php $__env->startSection('contant'); ?>  
 
 
 <?php
@@ -25,15 +23,15 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-              <img src="{{ URL::asset('uploads/homeslider/1.jpg')}}" alt="Los Angeles" style="width: 100%">
+              <img src="<?php echo e(URL::asset('uploads/homeslider/1.jpg')); ?>" alt="Los Angeles" style="width: 100%">
             </div>
 
             <div class="item">
-              <img src="{{ URL::asset('uploads/homeslider/1.jpg')}}" alt="Chicago" style="width: 100%">
+              <img src="<?php echo e(URL::asset('uploads/homeslider/1.jpg')); ?>" alt="Chicago" style="width: 100%">
             </div>
 
             <div class="item">
-              <img src="{{ URL::asset('uploads/homeslider/1.jpg')}}" alt="New York" style="width: 100%">
+              <img src="<?php echo e(URL::asset('uploads/homeslider/1.jpg')); ?>" alt="New York" style="width: 100%">
             </div>
           </div>
 
@@ -52,7 +50,7 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 </div>
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-        <h2>History</h2>
+        <h2>Contact Us</h2>
         <p class="text-justify lead">
             Association of cutaneous surgeons ( Bangladesh) is the first well organized group of dermatosurgeons in Bangladesh, starts it’s activity since march 2013 with a successful workshop on chemical peeling.<br>
             A group of young & enthusiastic dermatologists are involved here to upgrade their skill and knowledge on dermatosurgery. Dermatosurgery is a vital, time demanded & promising part of dermatology. So far it was wrongly practiced by other specialities. Develop countries are practicing dermatosurgery by their dermatosurgeons.
@@ -80,7 +78,9 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('frontend.fontend_mastar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

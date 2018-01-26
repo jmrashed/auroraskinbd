@@ -52,7 +52,7 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 </div>
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-        <h2>History</h2>
+        <h2>About Us</h2>
         <p class="text-justify lead">
             Association of cutaneous surgeons ( Bangladesh) is the first well organized group of dermatosurgeons in Bangladesh, starts it’s activity since march 2013 with a successful workshop on chemical peeling.<br>
             A group of young & enthusiastic dermatologists are involved here to upgrade their skill and knowledge on dermatosurgery. Dermatosurgery is a vital, time demanded & promising part of dermatology. So far it was wrongly practiced by other specialities. Develop countries are practicing dermatosurgery by their dermatosurgeons.

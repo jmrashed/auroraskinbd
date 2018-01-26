@@ -1,6 +1,4 @@
-@extends('frontend.fontend_mastar')
-
-@section('contant')  
+<?php $__env->startSection('contant'); ?>  
 
 
 <?php
@@ -25,15 +23,15 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-              <img src="{{ URL::asset('uploads/homeslider/1.jpg')}}" alt="Los Angeles" style="width: 100%">
+              <img src="<?php echo e(URL::asset('uploads/homeslider/1.jpg')); ?>" alt="Los Angeles" style="width: 100%">
             </div>
 
             <div class="item">
-              <img src="{{ URL::asset('uploads/homeslider/1.jpg')}}" alt="Chicago" style="width: 100%">
+              <img src="<?php echo e(URL::asset('uploads/homeslider/1.jpg')); ?>" alt="Chicago" style="width: 100%">
             </div>
 
             <div class="item">
-              <img src="{{ URL::asset('uploads/homeslider/1.jpg')}}" alt="New York" style="width: 100%">
+              <img src="<?php echo e(URL::asset('uploads/homeslider/1.jpg')); ?>" alt="New York" style="width: 100%">
             </div>
           </div>
 
@@ -80,7 +78,9 @@ $bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('frontend.fontend_mastar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

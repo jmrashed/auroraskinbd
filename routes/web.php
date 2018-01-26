@@ -1,6 +1,5 @@
 <?php
 
- 
 
 Route::group(['prefix' => 'superadmin'], function () {
 	Route::get('/login', 'SuperadminAuth\LoginController@showLoginForm');
@@ -75,6 +74,9 @@ if(($ex[0]!='superadmin') && ($ex[0]!='admin'))
     $users[] = Auth::guard('superadmin')->user();
 
     Route::get('/', 'FrontendController@index');
+    Route::get('/about-us', 'FrontendController@about_us');
+    Route::get('/contact-us', 'FrontendController@contact_us');
+
 	Route::get('/news/{id}/{title}', 'FrontendController@news');
   Route::get('/newssub/{id}/{title}', 'FrontendController@newssub');
 	Route::get('/news/rashifol/{id}/{title}', 'FrontendController@news_rashifol');

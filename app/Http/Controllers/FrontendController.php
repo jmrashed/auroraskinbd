@@ -53,83 +53,16 @@ class FrontendController extends Controller
 
 
     public function index()
-    {
-        
-
-       // $data_ads = DB::table('boi_ads')->select('*')->where('status', '1')->orderBy('id', 'DESC')->take(10)->get();
-   
-
-
-        $menu = DB::table('boi_menu')->where('menuparent', 'none')->where('menustatus', '1')->orderBy('menuposid', 'ASC')->get();
-
-        $top_news = DB::table('boi_news')->select('newsid', 'userid', 'news_sub_title_1', 'newstitle', 'news_sub_title_2', 'newsdetails', 'news_image', 'newsupdatetime', 'top_news', 'serial', 'heading_news', 'today_program', 'latest', 'nirbachito', 'newsstatus')
-            // ->whereIn('top_news',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
-            ->where('top_news', '>', '0')
-            ->where('newsstatus', '3')
-            ->orderBy('top_news', 'ASC')
-            ->take('15')
-            ->get();
-
-
-        //dd($top_news); exit;
-
-        $heading_news = DB::table('boi_news')->select('newsid', 'userid', 'newstitle', 'newsdetails', 'news_image', 'newsupdatetime', 'top_news', 'serial', 'heading_news', 'today_program', 'latest', 'nirbachito', 'newsstatus')
-            ->where('newsstatus', '3')->where('heading_news', '1')->orderBy('newsid', 'DESC')->take(20)->get();
-
-        $latest = DB::table('boi_news')->select('newsid', 'userid', 'newstitle', 'newsdetails', 'news_image', 'newsupdatetime', 'top_news', 'serial', 'heading_news', 'today_program', 'latest', 'nirbachito', 'newsstatus')
-            ->where('newsstatus', '3')->where('latest', '1')->orderBy('newsid', 'DESC')->take(4)->get();
-
-        $nirbachito = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news.top_news', 'boi_news.serial', 'boi_news.heading_news', 'boi_news.today_program', 'boi_news.latest', 'boi_news.nirbachito', 'admins.id', 'admins.name')
-            ->leftJoin('admins', 'admins.id', '=', 'boi_news.userid')
-            ->where('boi_news.newsstatus', '3')->where('boi_news.nirbachito', '1')->orderBy('boi_news.newsid', 'DESC')->take(4)->get();
-
-
-        $binodhon = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news_categoris.menuid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news.newsstatus', '3')->where('boi_news_categoris.menuid', '31')->orderBy('boi_news.newsid', 'DESC')->take(13)->get();
-
-
-        $bishesh_ayojon = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news.today_program', 'boi_news_categoris.menuid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news.newsstatus', '3')->where('boi_news.today_program', '1')->where('boi_news_categoris.menuid', '47')->orderBy('boi_news.newsid', 'DESC')->take(4)->get();
-
-        $bangladesh = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news_categoris.menuid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news.newsstatus', '3')->where('boi_news_categoris.menuid', '28')->orderBy('boi_news.newsid', 'DESC')->take(5)->get();
-
-        $world = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news_categoris.menuid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news.newsstatus', '3')->where('boi_news_categoris.menuid', '29')->orderBy('boi_news.newsid', 'DESC')->take(5)->get();
-
-        $sports = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news_categoris.menuid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news.newsstatus', '3')->where('boi_news_categoris.menuid', '30')->orderBy('boi_news.newsid', 'DESC')->take(5)->get();
-
-        $health = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news_categoris.menuid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news.newsstatus', '3')->where('boi_news_categoris.menuid', '35')->orderBy('boi_news.newsid', 'DESC')->take(5)->get();
-
-        $video = DB::table('media')->select('title', 'youtube', 'status', 'id')->where('status', '2')->orderBy('id', 'DESC')->take(10)->get();
-
-        $vote = DB::table('boi_vote')->where('status', '1')->orderBy('id', 'DESC')->take(1)->get();
-        $gallery = DB::table('boi_galleryalbum')->orderBy('id', 'DESC')->take(9)->get();
- 
-
-        $newsevents = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news_categoris.menuid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news.newsstatus', '3')->where('boi_news_categoris.menuid', '82')
-            ->orderBy('boi_news.newsid', 'DESC')->take(4)->get();
-  
-
-        $i=1;
-        $all_ads=DB::table('boi_ads')->select('*')->where([['status', '1'], ['categorie_id', '1000']])->orderBy('positioning', 'ASC')->get();
-        foreach ($all_ads as $key) {
-            $fronted_ads[$i++]=$key;       
-        }
-
-
-
-        return view('frontend/index', compact('menu', 'binodhon', 'video', 'bangladesh', 'world', 'sports', 'health', 'bishesh_ayojon', 'vote', 'gallery', 'top_news', 'heading_news', 'latest', 'nirbachito', 'fronted_ads', 'newsevents'));
+    { 
+        return view('frontend/index');
+    }
+    public function about_us()
+    { 
+        return view('frontend/about_us');
+    }
+    public function contact_us()
+    { 
+        return view('frontend/contact_us');
     }
 
 

@@ -1,5 +1,4 @@
-@extends('backend.dashboard')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="content-page">
     <style type="text/css">
         .mini-stat{
@@ -47,9 +46,11 @@
 
 </div> <!-- content -->
 
-@include('backend/footer')
+<?php echo $__env->make('backend/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 </div>
-@stop()
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('backend.dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

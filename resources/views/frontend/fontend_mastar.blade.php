@@ -61,7 +61,7 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="{{url('/')}}">
                             <h1><span class="fa fa-stethoscope" aria-hidden="true"></span>Auroraskin </h1>
                         </a>
                     </div>
@@ -79,9 +79,9 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="codes.html">Codes</a></li>
+                                        <li><a href="{{url('/')}}">Codes</a></li>
                                         <li class="divider"></li>
-                                        <li><a href="icons.html">Icons</a></li>
+                                        <li><a href="{{url('/')}}">Icons</a></li>
                                         <li class="divider"></li>
                                         
                                     </ul>

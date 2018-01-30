@@ -1,16 +1,17 @@
 @extends('frontend.fontend_mastar')
 
 @section('contant')  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+ 
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="0" class=""></li>
       <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-      <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="3" class=""></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
+      <div class="item">
         <div class="container">
           <div class="carousel-caption">
             <h3>With a Touch of <span>Kindness.</span></h3>
@@ -28,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div class="item item3">
+      <div class="item item3 active">
         <div class="container">
           <div class="carousel-caption">
             <h3>With a Touch of <span>Kindness.</span></h3>

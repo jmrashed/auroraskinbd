@@ -5,34 +5,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme for boishakhi tv">
         <meta name="author" content="jmrashed">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
         <title>Boishakhi Tv</title>
-        <link rel="shortcut icon" href="{{ URL::asset('frontend_source/images/logo.png') }}">
+        <link rel="shortcut icon" href="<?php echo e(URL::asset('frontend_source/images/logo.png')); ?>">
 
         <!-- Base Css Files -->
-        <link href="{{ URL::asset('backend_source/css/bootstrap.min.css') }}" rel="stylesheet" />
+        <link href="<?php echo e(URL::asset('backend_source/css/bootstrap.min.css')); ?>" rel="stylesheet" />
 
         <!-- Font Icons -->
-        <link href="{{ URL::asset('backend_source/assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('backend_source/assets/ionicon/css/ionicons.min.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('backend_source/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
+        <link href="<?php echo e(URL::asset('backend_source/assets/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet" />
+        <link href="<?php echo e(URL::asset('backend_source/assets/ionicon/css/ionicons.min.css')); ?>" rel="stylesheet" />
+        <link href="<?php echo e(URL::asset('backend_source/css/material-design-iconic-font.min.css')); ?>" rel="stylesheet">
 
         <!-- animate css -->
-        <link href="{{ URL::asset('backend_source/css/animate.css') }}" rel="stylesheet" />
+        <link href="<?php echo e(URL::asset('backend_source/css/animate.css')); ?>" rel="stylesheet" />
 
         <!-- Waves-effect -->
-        <!--<link href="{{ URL::asset('backend_source/css/waves-effect.css') }}" rel="stylesheet">-->
+        <!--<link href="<?php echo e(URL::asset('backend_source/css/waves-effect.css')); ?>" rel="stylesheet">-->
 
         <!-- sweet alerts -->
-        <!--<link href="{{ URL::asset('backend_source/assets/sweet-alert/sweet-alert.min.css') }}" rel="stylesheet">-->
+        <!--<link href="<?php echo e(URL::asset('backend_source/assets/sweet-alert/sweet-alert.min.css')); ?>" rel="stylesheet">-->
 
         <!-- Custom Files -->
-        <link href="{{ URL::asset('backend_source/css/helper.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ URL::asset('backend_source/css/style.css') }}" rel="stylesheet" type="text/css" />
+        <link href="<?php echo e(URL::asset('backend_source/css/helper.css')); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo e(URL::asset('backend_source/css/style.css')); ?>" rel="stylesheet" type="text/css" />
 
         <!-- DataTables -->
-        <link href="{{ URL::asset('backend_source/assets/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="<?php echo e(URL::asset('backend_source/assets/datatables/jquery.dataTables.min.css')); ?>" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,7 +41,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-<!--<script src="{{ URL::asset('backend_source/js/modernizr.min.js') }}"></script>-->
+<!--<script src="<?php echo e(URL::asset('backend_source/js/modernizr.min.js')); ?>"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script>
 var mainApp = angular.module("mainApp", []);
@@ -173,7 +173,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/deletebanner")}}',
+                            url: '<?php echo e(url("/deletebanner")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -224,7 +224,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/topnews")}}',
+                            url: '<?php echo e(url("/topnews")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -295,7 +295,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/admin/activenews")}}',
+                            url: '<?php echo e(url("/admin/activenews")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -347,7 +347,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/superadmin/gallery_delete")}}',
+                            url: '<?php echo e(url("/superadmin/gallery_delete")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -400,7 +400,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/superadmin/ads_delete")}}',
+                            url: '<?php echo e(url("/superadmin/ads_delete")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -452,7 +452,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/admin/gallery_delete")}}',
+                            url: '<?php echo e(url("/admin/gallery_delete")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -505,7 +505,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/superadmin/vote_delete")}}',
+                            url: '<?php echo e(url("/superadmin/vote_delete")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -556,7 +556,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/admin/vote_delete")}}',
+                            url: '<?php echo e(url("/admin/vote_delete")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -607,7 +607,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/superadmin/galleryalbum_delete")}}',
+                            url: '<?php echo e(url("/superadmin/galleryalbum_delete")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -658,7 +658,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/admin/galleryalbum_delete")}}',
+                            url: '<?php echo e(url("/admin/galleryalbum_delete")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -709,7 +709,7 @@ echo json_encode([
                         $.ajax({
 //                           dataType: "json",
                             method: "get",
-                            url: '{{url("/deletemenu")}}',
+                            url: '<?php echo e(url("/deletemenu")); ?>',
                             data: {data: data}
                         })
                                 .done(function (response)
@@ -737,7 +737,7 @@ echo json_encode([
                 $.ajax({
 //                           dataType: "json",
                     method: "get",
-                    url: '{{URL("/superadmin/categoriesedit")}}',
+                    url: '<?php echo e(URL("/superadmin/categoriesedit")); ?>',
                     data: {id: id}
                 })
                         .done(function (response)
@@ -777,14 +777,14 @@ echo json_encode([
                 $.ajax({
 //                           dataType: "json",
                     method: "get",
-                    url: '{{URL("/admin/remove_top")}}',
+                    url: '<?php echo e(URL("/admin/remove_top")); ?>',
                     data: {id: id}
                 })
                         .done(function (response)
                         {
 
-                            window.location.href = '{{URL('
-                            admin / user_post_edit / ')}}' + "/" + id;
+                            window.location.href = '<?php echo e(URL('
+                            admin / user_post_edit / ')); ?>' + "/" + id;
                         });
             }
 
@@ -801,14 +801,14 @@ echo json_encode([
                 $.ajax({
 //                           dataType: "json",
                     method: "get",
-                    url: '{{URL("/admin/unpublish_post")}}',
+                    url: '<?php echo e(URL("/admin/unpublish_post")); ?>',
                     data: {id: id}
                 })
                         .done(function (response)
                         {
 
-                            window.location.href = '{{URL('
-                            admin / user_post_edit / ')}}' + "/" + id;
+                            window.location.href = '<?php echo e(URL('
+                            admin / user_post_edit / ')); ?>' + "/" + id;
                         });
             }
 
@@ -824,13 +824,13 @@ echo json_encode([
                 $.ajax({
                     //dataType: "json",
                     method: "get",
-                    url: '{{URL("/superadmin/remove_top1")}}',
+                    url: '<?php echo e(URL("/superadmin/remove_top1")); ?>',
                     data: {id: id}
                 })
                         .done(function (response)
                         {
 
-                            window.location.href = '{{URL(' / superadmin / post - edit / ')}}' + "/" + id;
+                            window.location.href = '<?php echo e(URL(' / superadmin / post - edit / ')); ?>' + "/" + id;
                         });
             }
 
@@ -846,13 +846,13 @@ echo json_encode([
                 $.ajax({
 //                           dataType: "json",
                     method: "get",
-                    url: '{{URL("/superadmin/unpublish_post")}}',
+                    url: '<?php echo e(URL("/superadmin/unpublish_post")); ?>',
                     data: {id: id}
                 })
                         .done(function (response)
                         {
 
-                            window.location.href = '{{URL(' / superadmin / post - edit / ')}}' + "/" + id;
+                            window.location.href = '<?php echo e(URL(' / superadmin / post - edit / ')); ?>' + "/" + id;
                         });
             }
 
@@ -883,7 +883,7 @@ echo json_encode([
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="{{ url('dashboard') }}" class="logo"><i class="md"></i> <span>Admin Panel</span></a>
+                        <a href="<?php echo e(url('dashboard')); ?>" class="logo"><i class="md"></i> <span>Admin Panel</span></a>
                     </div>
                 </div>
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -899,7 +899,7 @@ echo json_encode([
                             <form class="navbar-form pull-left" role="search">
                                 <div class="form-group">
 
-                                    <h2 class="form-control search-bar" style="padding-top:13px;">@if(Auth::user()->desi)   {{$user = Auth::user()->name}}  @endif</h2>
+                                    <h2 class="form-control search-bar" style="padding-top:13px;"><?php if(Auth::user()->desi): ?>   <?php echo e($user = Auth::user()->name); ?>  <?php endif; ?></h2>
 <!--                                    <input type="text" class="form-control search-bar" placeholder="Type here for search...">-->
                                 </div>
                                 <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
@@ -913,22 +913,24 @@ echo json_encode([
 
                                 <li class="dropdown">
                                     <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
-                                        <img src="{{ URL::asset('frontend_source/images/logo.png') }}" alt="user-img" border="0" class="img-circle"> </a>
+                                        <img src="<?php echo e(URL::asset('frontend_source/images/logo.png')); ?>" alt="user-img" border="0" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
                                           <!--<li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile</a></li>-->
 
-                                        @if(Auth::user()->desi)
+                                        <?php if(Auth::user()->desi): ?>
 
-                                        <li><a href="{{ url('/admin/logout') }}"><i class="md md-settings-power"></i> Logout</a></li>
-                                        <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
+                                        <li><a href="<?php echo e(url('/admin/logout')); ?>"><i class="md md-settings-power"></i> Logout</a></li>
+                                        <form id="logout-form" action="<?php echo e(url('/admin/logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
                                         </form>
-                                        @else
-                                        <li><a href="{{ url('/superadmin/logout') }}"><i class="md md-settings-power"></i> Logout</a></li>
-                                        <form id="logout-form" action="{{ url('/superadmin/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
+                                        <?php else: ?>
+                                        <li><a href="<?php echo e(url('/superadmin/logout')); ?>"><i class="md md-settings-power"></i> Logout</a></li>
+                                        <form id="logout-form" action="<?php echo e(url('/superadmin/logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
                                         </form>
-                                        @endif
+                                        <?php endif; ?>
                                     </ul>
                                 </li>
                             </ul>
@@ -946,32 +948,33 @@ echo json_encode([
                 <div class="sidebar-inner slimscrollleft">
                     <div class="user-details">
                         <div class="pull-left">
-                            <img src="{{ URL::asset('frontend_source/images/logo.png') }}" alt="" class="thumb-md img-circle">
+                            <img src="<?php echo e(URL::asset('frontend_source/images/logo.png')); ?>" alt="" class="thumb-md img-circle">
                         </div>
                         <div class="user-info">
                             <div class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    {{$user = Auth::user()->name}} 
+                                    <?php echo e($user = Auth::user()->name); ?> 
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                 <!--<li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>-->
 
-                                    @if(Auth::user()->desi)
+                                    <?php if(Auth::user()->desi): ?>
 
-                                    <li><a href="{{ url('/admin/logout') }}"><i class="md md-lock"></i> Logout</a></li>
-                                    <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
+                                    <li><a href="<?php echo e(url('/admin/logout')); ?>"><i class="md md-lock"></i> Logout</a></li>
+                                    <form id="logout-form" action="<?php echo e(url('/admin/logout')); ?>" method="POST" style="display: none;">
+                                        <?php echo e(csrf_field()); ?>
+
                                     </form>
                                      
-                                    @endif
+                                    <?php endif; ?>
 
                                 </ul>
                             </div>
 
 
-                            @if(Auth::user()->desi)    
-                            <p class="text-muted m-0">{{Auth::user()->desi}}</p> 
-                            @endif
+                            <?php if(Auth::user()->desi): ?>    
+                            <p class="text-muted m-0"><?php echo e(Auth::user()->desi); ?></p> 
+                            <?php endif; ?>
 
 
 
@@ -981,13 +984,13 @@ echo json_encode([
                     <div id="sidebar-menu">
                         <ul> 
                             <li>
-                                <a href="{{ url('admin/dashboard') }}" class="waves-effect active"><i class="fa fa-dashboard"></i><span> Dashboard </span></a>
+                                <a href="<?php echo e(url('admin/dashboard')); ?>" class="waves-effect active"><i class="fa fa-dashboard"></i><span> Dashboard </span></a>
                             </li>  
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Headline </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('admin/headline') }}"> Add New </a></li>
+                                    <li><a href="<?php echo e(url('admin/headline')); ?>"> Add New </a></li>
 
                                 </ul>
                             </li>
@@ -996,20 +999,20 @@ echo json_encode([
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Posts </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('admin/user_posts') }}">All Post</a></li>
-                                    <li><a href="{{ url('admin/user_newadd') }}">Add New</a></li>
+                                    <li><a href="<?php echo e(url('admin/user_posts')); ?>">All Post</a></li>
+                                    <li><a href="<?php echo e(url('admin/user_newadd')); ?>">Add New</a></li>
                                 </ul>
                             </li>
  
                             <li>
-                                <a href="{{ url('admin/reporter-post') }}" class="waves-effect"><i class="md md-pages"></i><span> Reporter Post </span></a>
+                                <a href="<?php echo e(url('admin/reporter-post')); ?>" class="waves-effect"><i class="md md-pages"></i><span> Reporter Post </span></a>
                             </li> 
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-perm-media"></i><span> Media </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('admin/media') }}">All Media</a></li>
-                                    <li><a href="{{ url('admin/newaddmedia') }}">Add New</a></li>
+                                    <li><a href="<?php echo e(url('admin/media')); ?>">All Media</a></li>
+                                    <li><a href="<?php echo e(url('admin/newaddmedia')); ?>">Add New</a></li>
 
                                 </ul>
                             </li>
@@ -1017,28 +1020,28 @@ echo json_encode([
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-description"></i><span> Gallery </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('admin/galleryalbum') }}">Gallery Album Manage</a></li>
-                                    <li><a href="{{ url('admin/newaddgalleryalbum') }}">Add Gallery Album</a></li>
+                                    <li><a href="<?php echo e(url('admin/galleryalbum')); ?>">Gallery Album Manage</a></li>
+                                    <li><a href="<?php echo e(url('admin/newaddgalleryalbum')); ?>">Add Gallery Album</a></li>
 
-                                    <li><a href="{{ url('admin/gallery') }}">Gallery Manage</a></li>
-                                    <li><a href="{{ url('admin/newaddgallery') }}">Add Gallery</a></li>
-                                    <!--<li><a href="{{ url('superadmin/comments') }}">Comments Approval</a></li>-->
+                                    <li><a href="<?php echo e(url('admin/gallery')); ?>">Gallery Manage</a></li>
+                                    <li><a href="<?php echo e(url('admin/newaddgallery')); ?>">Add Gallery</a></li>
+                                    <!--<li><a href="<?php echo e(url('superadmin/comments')); ?>">Comments Approval</a></li>-->
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-description"></i><span> Vote </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('admin/vote') }}">Vote Manage</a></li>
-                                    <li><a href="{{ url('admin/newaddvote') }}">Add Vote</a></li>
-                                    <!--<li><a href="{{ url('superadmin/comments') }}">Comments Approval</a></li>-->
+                                    <li><a href="<?php echo e(url('admin/vote')); ?>">Vote Manage</a></li>
+                                    <li><a href="<?php echo e(url('admin/newaddvote')); ?>">Add Vote</a></li>
+                                    <!--<li><a href="<?php echo e(url('superadmin/comments')); ?>">Comments Approval</a></li>-->
                                 </ul>
                             </li> 
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Headline </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('superadmin/headline') }}"> Add New </a></li>
+                                    <li><a href="<?php echo e(url('superadmin/headline')); ?>"> Add New </a></li>
 
                                 </ul>
                             </li>
@@ -1046,17 +1049,17 @@ echo json_encode([
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Posts </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('superadmin/posts') }}">All Post</a></li>
-                                    <!--<li><a href="{{ url('superadmin/newadd') }}">Add New</a></li>
-                                    -->                                    <li><a href="{{ url('superadmin/categories') }}">Categories</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/posts')); ?>">All Post</a></li>
+                                    <!--<li><a href="<?php echo e(url('superadmin/newadd')); ?>">Add New</a></li>
+                                    -->                                    <li><a href="<?php echo e(url('superadmin/categories')); ?>">Categories</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-perm-media"></i><span> Media </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('superadmin/media') }}">All Media</a></li>
-                                    <li><a href="{{ url('superadmin/newaddmedia') }}">Add New</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/media')); ?>">All Media</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/newaddmedia')); ?>">Add New</a></li>
 
                                 </ul>
                             </li>
@@ -1064,45 +1067,45 @@ echo json_encode([
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-description"></i><span> Gallery </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('superadmin/galleryalbum') }}">Gallery Album Manage</a></li>
-                                    <li><a href="{{ url('superadmin/newaddgalleryalbum') }}">Add Gallery Album</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/galleryalbum')); ?>">Gallery Album Manage</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/newaddgalleryalbum')); ?>">Add Gallery Album</a></li>
 
-                                    <li><a href="{{ url('superadmin/gallery') }}">Gallery Manage</a></li>
-                                    <li><a href="{{ url('superadmin/newaddgallery') }}">Add Gallery</a></li>
-                                    <!--<li><a href="{{ url('superadmin/comments') }}">Comments Approval</a></li>-->
+                                    <li><a href="<?php echo e(url('superadmin/gallery')); ?>">Gallery Manage</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/newaddgallery')); ?>">Add Gallery</a></li>
+                                    <!--<li><a href="<?php echo e(url('superadmin/comments')); ?>">Comments Approval</a></li>-->
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-description"></i><span> Ads </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('superadmin/ads') }}">Ads Manage</a></li>
-                                    <li><a href="{{ url('superadmin/newaddads') }}">Add New</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/ads')); ?>">Ads Manage</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/newaddads')); ?>">Add New</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-description"></i><span> Vote </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('superadmin/vote') }}">Vote Manage</a></li>
-                                    <li><a href="{{ url('superadmin/newaddvote') }}">Add Vote</a></li>
-                                    <!--<li><a href="{{ url('superadmin/comments') }}">Comments Approval</a></li>-->
+                                    <li><a href="<?php echo e(url('superadmin/vote')); ?>">Vote Manage</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/newaddvote')); ?>">Add Vote</a></li>
+                                    <!--<li><a href="<?php echo e(url('superadmin/comments')); ?>">Comments Approval</a></li>-->
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-account-circle"></i><span> Users </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('superadmin/user') }}">All Users</a></li>
-                                    <li><a href="{{ url('superadmin/useradd') }}">Add New</a></li>                                    
+                                    <li><a href="<?php echo e(url('superadmin/user')); ?>">All Users</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/useradd')); ?>">Add New</a></li>                                    
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-account-circle"></i><span> Superadmin </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ url('superadmin/superadmin_user') }}">All Users</a></li>
-                                    <li><a href="{{ url('superadmin/superadmin_useradd') }}">Add New</a></li>                                    
+                                    <li><a href="<?php echo e(url('superadmin/superadmin_user')); ?>">All Users</a></li>
+                                    <li><a href="<?php echo e(url('superadmin/superadmin_useradd')); ?>">Add New</a></li>                                    
                                 </ul>
                             </li>
  
@@ -1120,7 +1123,7 @@ echo json_encode([
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->                      
-            @yield('content')
+            <?php echo $__env->yieldContent('content'); ?>
 
             <!-- ============================================================== -->
             <!-- End Right content here -->
@@ -1246,56 +1249,56 @@ echo json_encode([
         </script>
 
         <!-- jQuery  -->
-        <script src="{{ URL::asset('backend_source/js/jquery.min.js') }}"></script>
+        <script src="<?php echo e(URL::asset('backend_source/js/jquery.min.js')); ?>"></script>
 
 
-        <script src="{{ URL::asset('backend_source/js/bootstrap.min.js') }}"></script>
+        <script src="<?php echo e(URL::asset('backend_source/js/bootstrap.min.js')); ?>"></script>
 
-<!--<script src="{{ URL::asset('backend_source/js/waves.js') }}j"></script>
-<script src="{{ URL::asset('backend_source/js/wow.min.js') }}"></script>
-<script src="{{ URL::asset('backend_source/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('backend_source/js/jquery.scrollTo.min.js') }}"></script>
-<script src="{{ URL::asset('backend_source/assets/chat/moment-2.2.1.js') }}"></script>
-<script src="{{ URL::asset('backend_source/assets/jquery-sparkline/jquery.sparkline.min.js') }}"></script>-->
-        <script src="{{ URL::asset('backend_source/assets/jquery-detectmobile/detect.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/fastclick/fastclick.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
-        <!--<script src="{{ URL::asset('backend_source/assets/jquery-blockui/jquery.blockUI.js') }}"></script>-->
+<!--<script src="<?php echo e(URL::asset('backend_source/js/waves.js')); ?>j"></script>
+<script src="<?php echo e(URL::asset('backend_source/js/wow.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('backend_source/js/jquery.nicescroll.js')); ?>" type="text/javascript"></script>
+<script src="<?php echo e(URL::asset('backend_source/js/jquery.scrollTo.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('backend_source/assets/chat/moment-2.2.1.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('backend_source/assets/jquery-sparkline/jquery.sparkline.min.js')); ?>"></script>-->
+        <script src="<?php echo e(URL::asset('backend_source/assets/jquery-detectmobile/detect.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/fastclick/fastclick.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/jquery-slimscroll/jquery.slimscroll.js')); ?>"></script>
+        <!--<script src="<?php echo e(URL::asset('backend_source/assets/jquery-blockui/jquery.blockUI.js')); ?>"></script>-->
 
         <!-- sweet alerts -->
-        <!--<script src="{{ URL::asset('backend_source/assets/sweet-alert/sweet-alert.min.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/sweet-alert/sweet-alert.init.js') }}"></script>-->
+        <!--<script src="<?php echo e(URL::asset('backend_source/assets/sweet-alert/sweet-alert.min.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/sweet-alert/sweet-alert.init.js')); ?>"></script>-->
 
         <!-- flot Chart -->
-        <!--<script src="{{ URL::asset('backend_source/assets/flot-chart/jquery.flot.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/flot-chart/jquery.flot.time.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/flot-chart/jquery.flot.tooltip.min.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/flot-chart/jquery.flot.resize.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/flot-chart/jquery.flot.pie.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/flot-chart/jquery.flot.selection.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/flot-chart/jquery.flot.stack.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/flot-chart/jquery.flot.crosshair.js') }}"></script>-->
+        <!--<script src="<?php echo e(URL::asset('backend_source/assets/flot-chart/jquery.flot.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/flot-chart/jquery.flot.time.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/flot-chart/jquery.flot.tooltip.min.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/flot-chart/jquery.flot.resize.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/flot-chart/jquery.flot.pie.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/flot-chart/jquery.flot.selection.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/flot-chart/jquery.flot.stack.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/flot-chart/jquery.flot.crosshair.js')); ?>"></script>-->
 
         <!-- Counter-up -->
-        <!--<script src="{{ URL::asset('backend_source/assets/counterup/waypoints.min.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::asset('backend_source/assets/counterup/jquery.counterup.min.js') }}" type="text/javascript"></script>-->
+        <!--<script src="<?php echo e(URL::asset('backend_source/assets/counterup/waypoints.min.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/counterup/jquery.counterup.min.js')); ?>" type="text/javascript"></script>-->
 
         <!-- CUSTOM JS -->
-        <script src="{{ URL::asset('backend_source/js/jquery.app.js') }}"></script>
+        <script src="<?php echo e(URL::asset('backend_source/js/jquery.app.js')); ?>"></script>
 
         <!-- Dashboard -->
-        <script src="{{ URL::asset('backend_source/js/jquery.dashboard.js') }}"></script>
+        <script src="<?php echo e(URL::asset('backend_source/js/jquery.dashboard.js')); ?>"></script>
 
         <!-- Chat -->
-        <!--<script src="{{ URL::asset('backend_source/js/jquery.chat.js') }}"></script>-->
+        <!--<script src="<?php echo e(URL::asset('backend_source/js/jquery.chat.js')); ?>"></script>-->
 
         <!-- Todo -->
-<!--        <script src="{{ URL::asset('backend_source/js/jquery.todo.js') }}"></script>-->
+<!--        <script src="<?php echo e(URL::asset('backend_source/js/jquery.todo.js')); ?>"></script>-->
 
         <!-- CUSTOM JS -->
 
-        <script src="{{ URL::asset('backend_source/assets/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ URL::asset('backend_source/assets/datatables/dataTables.bootstrap.js') }}"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/datatables/jquery.dataTables.min.js')); ?>"></script>
+        <script src="<?php echo e(URL::asset('backend_source/assets/datatables/dataTables.bootstrap.js')); ?>"></script>
 
         <script type="text/javascript">
             /* ==============================================
@@ -1315,7 +1318,7 @@ echo json_encode([
             });
         </script>
 
-        <script src="{{ URL::asset('templateEditor/ckeditor/ckeditor.js') }}"></script>
+        <script src="<?php echo e(URL::asset('templateEditor/ckeditor/ckeditor.js')); ?>"></script>
         <script>
             $(document).ready(function () {
                 CKEDITOR.replace("article-ckeditor",

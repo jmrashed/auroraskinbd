@@ -64,88 +64,25 @@ class FrontendController extends Controller
     { 
         return view('frontend/contact_us');
     }
-
-
-    public function news_rashifol($id, $title)
-    {
-
-        //dd("uploading ..."); exit;
-        $menu = DB::table('boi_menu')->where('menuparent', 'none')->where('menustatus', '1')->orderBy('menuposid', 'ASC')->get();
-
-        $heading_news = DB::table('boi_news')->select('newsid', 'userid', 'newstitle', 'newsdetails', 'news_image', 'newsupdatetime', 'top_news', 'serial', 'heading_news', 'today_program', 'latest', 'nirbachito', 'newsstatus')
-            ->where('newsstatus', '3')->where('heading_news', '1')->orderBy('newsid', 'DESC')->take(20)->get();
-
-        $latest_news = DB::table('boi_news')->select('newsid', 'userid', 'newsstatus', 'newstitle', 'newsdetails', 'news_image', 'newsupdatetime', 'top_news')
-            ->where('newsstatus', '3')->orderBy('newsid', 'DESC')->take(13)->get();
-
-        $latest_one_news = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newsstatus', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news_categoris.menuid', 'boi_news_categoris.menusubid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news_categoris.menuid', $id)
-            ->where('boi_news_categoris.menusubid', '0')
-            ->where('boi_news.newsstatus', '3')
-            ->orderBy('boi_news.newsid', 'DESC')
-            ->take(1)
-            ->first();
-        //dd($latest_one_news);
-
-        $all_category_news = DB::table('boi_news')->select('boi_news.newsid', 'boi_news.userid', 'boi_news.newsstatus', 'boi_news.newstitle', 'boi_news.newsdetails', 'boi_news.news_image', 'boi_news.newsupdatetime', 'boi_news_categoris.menuid', 'boi_news_categoris.menusubid', 'boi_news_categoris.newsmainid')
-            ->leftJoin('boi_news_categoris', 'boi_news_categoris.newsmainid', '=', 'boi_news.newsid')
-            ->where('boi_news_categoris.menuid', $id)
-            ->where('boi_news_categoris.menusubid', '0')
-            ->where('boi_news.newsstatus', '3')
-            ->orderBy('boi_news.newsid', 'DESC')
-            ->paginate(13);
-
-
-        // $rashifol_category_news1= DB::table('boi_news')->select('boi_news.newsid','boi_news.userid','boi_news.newsstatus','boi_news.newstitle','boi_news.newsdetails','boi_news.news_image','boi_news.newsupdatetime','boi_news_categoris.menuid','boi_news_categoris.menusubid','boi_news_categoris.newsmainid')
-        // 				->leftJoin('boi_news_categoris','boi_news_categoris.newsmainid','=','boi_news.newsid')
-        // 				->where('boi_news_categoris.menuid', $id)
-        // 				->where('boi_news_categoris.menusubid', '0')
-        // 				 ->where('boi_news.newsstatus', '3')
-        // 				->orderBy('boi_news.newsid', 'DESC')
-        // 				->paginate(13);
-
-
-        $categories = DB::table('boi_menu')->select('menuid', 'menutitle')->where('menuid', $id)->first();
-
-        $viewcount = DB::table('boi_news')->select('newsid', 'readcount')->where('newsid', $id)->first();
-        //$add 			= 1 + $viewcount->readcount;
-        //DB::table('boi_news')->where('newsid', $id)->update(array('readcount' => $add)); // update for read news
-
-        $popular = DB::table('boi_news')->select('newsid', 'readcount', 'newstitle', 'newsdetails', 'newsupdatetime', 'news_image', 'newsupdatetime')
-            ->where('newsstatus', '3')->where('readcount', '>', '0')->orderBy('newsid', 'DESC')->take(4)->get();
-
-        // $advertizing1	= DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning','=','1')->orderBy('id', 'DESC')->take(1)->get();
-        // $advertizing8	= DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning','=','8')->orderBy('id', 'DESC')->take(1)->get();
-        // $advertizing7	= DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning','=','7')->orderBy('id', 'DESC')->take(1)->get();
-
-        /* modified by jmrashed  */
-        $advertizing1 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '1')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing2 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '2')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing3 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '3')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing4 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '4')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing5 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '5')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing6 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '6')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing7 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '7')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing8 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '8')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing9 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '9')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing10 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '10')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing11 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '11')->orderBy('id', 'DESC')->take(1)->get();
-        $advertizing12 = DB::table('boi_ads')->select('*')->where('status', '1')->where('positioning', '=', '12')->orderBy('id', 'DESC')->take(1)->get();
-
-
-        $fronted_ads = $this->get_ads($id);
-        return view('frontend/news_category_rashifol', compact('menu', 'latest_news', 'all_category_news', 'categories', 'popular', 'heading_news', 'fronted_ads', 'latest_one_news'));
+    public function departments()
+    { 
+        return view('frontend/departments');
     }
 
+    public function gallery()
+    { 
+        return view('frontend/gallery');
+    }
 
-
-
-
-
-
-
-
+    public function services()
+    { 
+        return view('frontend/services');
+    }
+     
+   public function appointment()
+    { 
+        return view('frontend/appointment');
+    }
 
 
 

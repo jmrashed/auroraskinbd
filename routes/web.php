@@ -76,7 +76,11 @@ if(($ex[0]!='superadmin') && ($ex[0]!='admin'))
     Route::get('/', 'FrontendController@index');
     Route::get('/about-us', 'FrontendController@about_us');
     Route::get('/contact-us', 'FrontendController@contact_us');
+    Route::get('/departments', 'FrontendController@departments');
+    Route::get('/gallery', 'FrontendController@gallery');
+    Route::get('/services', 'FrontendController@services');
 
+    Route::get('/appointment', 'FrontendController@appointment');
 	Route::get('/news/{id}/{title}', 'FrontendController@news');
   Route::get('/newssub/{id}/{title}', 'FrontendController@newssub');
 	Route::get('/news/rashifol/{id}/{title}', 'FrontendController@news_rashifol');

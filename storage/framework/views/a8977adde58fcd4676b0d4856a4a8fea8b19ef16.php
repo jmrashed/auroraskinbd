@@ -1,6 +1,4 @@
-@extends('backend.dashboard')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="content-page">
     <!-- Start content -->
     <div class="content">
@@ -12,23 +10,23 @@
                 </div>
 
                 <div class="col-sm-8">
-                    @if(Session::has('success'))
-                    <div class="alert alert-success" style="text-align: center">  {!!Session::get('success')!!}</div>
-                    @endif
+                    <?php if(Session::has('success')): ?>
+                    <div class="alert alert-success" style="text-align: center">  <?php echo Session::get('success'); ?></div>
+                    <?php endif; ?>
 
-                    {{-- error message --}}
+                    
 
-                    @if ($errors->has('menutitle'))
+                    <?php if($errors->has('menutitle')): ?>
                     <span class="help-block">
-                        <strong>{{ $errors - > first('menutitle')}}</strong>
+                        <strong><?php echo e($errors - > first('menutitle')); ?></strong>
                     </span>
-                    @endif
+                    <?php endif; ?>
 
-                    @if ($errors->has('menuslug'))
+                    <?php if($errors->has('menuslug')): ?>
                     <span class="help-block">
-                        <strong>{{ $errors - > first('menuslug')}}</strong>
+                        <strong><?php echo e($errors - > first('menuslug')); ?></strong>
                     </span>
-                    @endif
+                    <?php endif; ?>
                 </div>
 
 
@@ -43,7 +41,8 @@
                             <h3 class="panel-title">Add New Category</h3>
                         </div>
                         <div class="panel-body" ng-app = "mainApp" ng-controller = "studentController">
-                            {!! Form::open(array('url' => 'superadmin/categoriessubmit', 'method' => 'post','name' => 'studentForm','novalidate','files' => true)) !!}
+                            <?php echo Form::open(array('url' => 'superadmin/categoriessubmit', 'method' => 'post','name' => 'studentForm','novalidate','files' => true)); ?>
+
 
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -53,8 +52,8 @@
                                             <label for="firstname" class="control-label col-lg-12">Menu Position Id</label>
                                             <div class="col-lg-12">
                                                 <input class="form-control" id="menutitle" name="menuposid" type="text" 
-                                                       value="@php echo $lastid->menuposid+1;
-                                                       @endphp" ng-minlength="4" required>
+                                                       value="<?php echo $lastid->menuposid+1;
+                                                       ?>" ng-minlength="4" required>
 
                                                 <span style = "color:red" ng-show = "studentForm.menutitle.$dirty && studentForm.menutitle.$invalid">
                                                     <span ng-show = "studentForm.menutitle.$error.required">Name is required.</span>
@@ -91,7 +90,7 @@
                                                     if($data)
                                                     foreach ($data as $activedata) {
                                                         ?>
-                                                        <option value="{{$activedata - > menuid}}">{{$activedata - > menutitle}}</option>
+                                                        <option value="<?php echo e($activedata - > menuid); ?>"><?php echo e($activedata - > menutitle); ?></option>
                                                         <?php
                                                     }
                                                     ?>
@@ -129,7 +128,8 @@
                                 </div>
                             </div>
 
-                            {!! Form::close() !!}
+                            <?php echo Form::close(); ?>
+
                         </div>
 
 
@@ -170,31 +170,33 @@
                                                 ?>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="serial[]" id="serial{{$i}}" value="{{$activedata - > menuid}}"></td>
-                                                    <td>{{$activedata - > menutitle}}
+                                                    <td><input type="checkbox" name="serial[]" id="serial<?php echo e($i); ?>" value="<?php echo e($activedata - > menuid); ?>"></td>
+                                                    <td><?php echo e($activedata - > menutitle); ?>
+
                                                         <div class="row-actions">
-                                                            <span class="edit"><a href="JavaScript:void()" onclick="edit('{{$activedata - > menuid}}')">Edit</a> | </span>
+                                                            <span class="edit"><a href="JavaScript:void()" onclick="edit('<?php echo e($activedata - > menuid); ?>')">Edit</a> | </span>
 
                                                             <span class="trash">
-                                                                <a href="{{URL('superadmin/categoriesdelete/'.$activedata - > menuid)}}" class="submitdelete">
+                                                                <a href="<?php echo e(URL('superadmin/categoriesdelete/'.$activedata - > menuid)); ?>" class="submitdelete">
                                                                     Delete</a></span>
                                                         </div>
                                                     </td>
-                                                    <td>{{$activedata - > menudescription}}</td>
+                                                    <td><?php echo e($activedata - > menudescription); ?></td>
                                                     <td>
-                                                        {{$activedata - > menuslug}}
+                                                        <?php echo e($activedata - > menuslug); ?>
+
                                                     </td>
                                                     <td>
 
 
-                                                        @if($activedata->menustatus==1)
+                                                        <?php if($activedata->menustatus==1): ?>
 
-                                                        <img src="{{ URL::asset('backend_source/images/active.png') }}" width="22" height="22" />
+                                                        <img src="<?php echo e(URL::asset('backend_source/images/active.png')); ?>" width="22" height="22" />
 
-                                                        @else
+                                                        <?php else: ?>
 
-                                                        <img src="{{ URL::asset('backend_source/images/notactive.png') }}" width="22" height="22" />
-                                                        @endif
+                                                        <img src="<?php echo e(URL::asset('backend_source/images/notactive.png')); ?>" width="22" height="22" />
+                                                        <?php endif; ?>
                                                     </td>
 
                                                 </tr>
@@ -204,31 +206,33 @@
                                                     foreach ($checksub as $activedata) {
                                                         ?>
                                                         <tr>
-                                                            <td><input type="checkbox" name="serial[]" id="serial{{$i}}" value="{{$activedata - > menuid}}"></td>
-                                                            <td> __ {{$activedata - > menutitle}}
+                                                            <td><input type="checkbox" name="serial[]" id="serial<?php echo e($i); ?>" value="<?php echo e($activedata - > menuid); ?>"></td>
+                                                            <td> __ <?php echo e($activedata - > menutitle); ?>
+
                                                                 <div class="row-actions">
-                                                                    <span class="edit"><a href="JavaScript:void()" onclick="edit('{{$activedata - > menuid}}')">Edit</a> | </span>
+                                                                    <span class="edit"><a href="JavaScript:void()" onclick="edit('<?php echo e($activedata - > menuid); ?>')">Edit</a> | </span>
 
                                                                     <span class="trash">
-                                                                        <a href="{{URL('superadmin/categoriesdelete/'.$activedata - > menuid)}}" class="submitdelete">
+                                                                        <a href="<?php echo e(URL('superadmin/categoriesdelete/'.$activedata - > menuid)); ?>" class="submitdelete">
                                                                             Delete</a></span>
                                                                 </div>
                                                             </td>
-                                                            <td>{{$activedata - > menudescription}}</td>
+                                                            <td><?php echo e($activedata - > menudescription); ?></td>
                                                             <td>
-                                                                {{$activedata - > menuslug}}
+                                                                <?php echo e($activedata - > menuslug); ?>
+
                                                             </td>
                                                             <td>
 
 
-                                                                @if($activedata->menustatus==1)
+                                                                <?php if($activedata->menustatus==1): ?>
 
-                                                                <img src="{{ URL::asset('backend_source/images/active.png') }}" width="22" height="22" />
+                                                                <img src="<?php echo e(URL::asset('backend_source/images/active.png')); ?>" width="22" height="22" />
 
-                                                                @else
+                                                                <?php else: ?>
 
-                                                                <img src="{{ URL::asset('backend_source/images/notactive.png') }}" width="22" height="22" />
-                                                                @endif
+                                                                <img src="<?php echo e(URL::asset('backend_source/images/notactive.png')); ?>" width="22" height="22" />
+                                                                <?php endif; ?>
                                                             </td>
 
                                                         </tr>
@@ -270,7 +274,8 @@
 
     </div> <!-- content -->
 
-    @include('backend/footer')
+    <?php echo $__env->make('backend/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 </div>
-@stop()
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend.dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

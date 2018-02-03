@@ -883,7 +883,7 @@ echo json_encode([
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="{{ url('dashboard') }}" class="logo"><i class="md"></i> <span>Boishakhi</span></a>
+                        <a href="{{ url('dashboard') }}" class="logo"><i class="md"></i> <span>Admin Panel</span></a>
                     </div>
                 </div>
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -899,7 +899,7 @@ echo json_encode([
                             <form class="navbar-form pull-left" role="search">
                                 <div class="form-group">
 
-                                    <h2 class="form-control search-bar" style="padding-top:13px;">Boishakhi Tv</h2>
+                                    <h2 class="form-control search-bar" style="padding-top:13px;">@if(Auth::user()->desi)   {{$user = Auth::user()->name}}  @endif</h2>
 <!--                                    <input type="text" class="form-control search-bar" placeholder="Type here for search...">-->
                                 </div>
                                 <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
@@ -962,11 +962,7 @@ echo json_encode([
                                     <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
-                                    @else
-                                    <li><a href="{{ url('/superadmin/logout') }}"><i class="md md-lock"></i> Logout</a></li>
-                                    <form id="logout-form" action="{{ url('/superadmin/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
+                                     
                                     @endif
 
                                 </ul>
@@ -974,9 +970,7 @@ echo json_encode([
 
 
                             @if(Auth::user()->desi)    
-                            <p class="text-muted m-0">{{Auth::user()->desi}}</p>
-                            @else
-                            <p class="text-muted m-0">Administrator</p>
+                            <p class="text-muted m-0">{{Auth::user()->desi}}</p> 
                             @endif
 
 
@@ -985,20 +979,10 @@ echo json_encode([
                     </div>
                     <!--- Divider -->
                     <div id="sidebar-menu">
-                        <ul>
-                            @if(Auth::user()->desi)
+                        <ul> 
                             <li>
                                 <a href="{{ url('admin/dashboard') }}" class="waves-effect active"><i class="fa fa-dashboard"></i><span> Dashboard </span></a>
-                            </li>
-                            @else
-
-                            <li>
-                                <a href="{{ url('superadmin/dashboard') }}" class="waves-effect active"><i class="fa fa-dashboard"></i><span> Dashboard </span></a>
-                            </li>
-
-                            @endif
-
-                            @if(Auth::user()->desi)
+                            </li>  
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Headline </span><span class="pull-right"><i class="md md-add"></i></span></a>
@@ -1016,12 +1000,10 @@ echo json_encode([
                                     <li><a href="{{ url('admin/user_newadd') }}">Add New</a></li>
                                 </ul>
                             </li>
-
-                            @if(Auth::user()->type==1)
+ 
                             <li>
                                 <a href="{{ url('admin/reporter-post') }}" class="waves-effect"><i class="md md-pages"></i><span> Reporter Post </span></a>
-                            </li>
-                            @endif
+                            </li> 
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md-perm-media"></i><span> Media </span><span class="pull-right"><i class="md md-add"></i></span></a>
@@ -1051,8 +1033,7 @@ echo json_encode([
                                     <li><a href="{{ url('admin/newaddvote') }}">Add Vote</a></li>
                                     <!--<li><a href="{{ url('superadmin/comments') }}">Comments Approval</a></li>-->
                                 </ul>
-                            </li>
-                            @else
+                            </li> 
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Headline </span><span class="pull-right"><i class="md md-add"></i></span></a>
@@ -1124,8 +1105,7 @@ echo json_encode([
                                     <li><a href="{{ url('superadmin/superadmin_useradd') }}">Add New</a></li>                                    
                                 </ul>
                             </li>
-
-                            @endif
+ 
                         </ul>
                         <div class="clearfix"></div>
                     </div>

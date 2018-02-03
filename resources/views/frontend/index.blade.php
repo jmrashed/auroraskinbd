@@ -1,268 +1,301 @@
 @extends('frontend.fontend_mastar')
 
 @section('contant')  
-
-
-<?php
-$engtime = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday');
-
-
-
-$bangtime = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '০', 'জানুয়ারী', 'ফেব্রুয়ারী', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর', 'শনিবার', 'রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার');
-?>
-
-
-
-<div class="row cntnt_top_margin">
-    <div class="col-md-9 col-sm-7 col-xs-12">
-        <?php
-        $t = 0;
-        if (sizeof($top_news) > 0) {
-            foreach ($top_news as $lastNews) {
-                if ($t <= 5) {
-                    $newsslug = strip_tags($lastNews->newstitle);
-                    $newsslugfilter = str_replace(' ', '-', $newsslug);
-                    $newsslugfilter = str_replace(',', '', $newsslugfilter);
-                    if ($t == 3) {
-                        echo '<div class="clearfix"></div>';
-                    }
-                    ?>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="row">
-                            <div class="cntnt_box">
-                                <article class="post list-post post-grid" style="margin-bottom: 5px !important">
-                                    <div class="post-thumb">
-                                        @if($lastNews->news_image!='')
-                                        <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}"><img
-                                                src="{{ URL::asset('uploads/news/'.$lastNews->news_image)}}"
-                                                class="grid_nws_img1" alt="" border="0"></a>
-                                        @endif
-                                        <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}"
-                                           class="post-thumb-overlay text-center">
-                                            <div class="text-up
-                                                 case text-center"><i class="fa fa-search"></i></div>
-                                        </a>
-                                    </div>
-
-                                    <div class="post-content" style="height: 170px;">
-                                        <div class="post-header">
-                                            <?php if ($lastNews->news_sub_title_1) { ?>
-                                                <p class=""  style="margin: 0 0 0px;">
-                                                    <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}"><?php echo $lastNews->news_sub_title_1; ?></a>
-                                                </p>
-                                            <?php } ?>
-
-                                            <p class="newstitle" style="margin: 0 0 0px;">
-                                                <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}"><?php echo $lastNews->newstitle; ?></a>
-                                            </p>
-
-                                        </div>
-
-
-                                        <p>
-                                            <?php
-                                            $busRow = strip_tags($lastNews->newsdetails);
-                                            if (strlen($busRow) > 240) {
-                                                $stringCuth = substr($busRow, 0, 140);
-                                                $busRow = substr($stringCuth, 0, strrpos($stringCuth, ' ')) . '...';
-                                            }
-                                            echo $busRow;
-                                            ?>
-                                        </p>
-
-                                        <?php
-                                        $ex = explode(' ', $lastNews->newsupdatetime);
-                                        $viewdate = $ex[0] . ' ' . $ex[1] . ' ' . $ex[2];
-                                        $cdate = str_replace($engtime, $bangtime, $viewdate);
-                                        ?>
-
-
-                                    </div>
-
-
-                                </article>
-                            </div>
-                        </div>
-                    </div>
-
-                    <?php
-                }
-                $t++;
-            }
-        }
-        ?>
-
-        <div class="clearfix"></div>
-
-        
-
-
-
-
-
-
-    </div>
-
-
-    <div class="col-md-3 col-sm-5 " style="padding-left: 7px;" style="dispaly:none">
-
  
-
-
-        <div class="row ads ">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Recent </a></li>
-                <li><a data-toggle="tab" href="#menu1">Selected </a></li>
-            </ul>
-            <div class="tab-content tab_customzd">
-                <div id="home" class="tab-pane fade in active">
-
-
-                    <?php
-                    $n = 0;
-
-                    if (sizeof($latest) > 0) {
-
-                        foreach ($latest as $lastNews) {
-
-                            $newsslug = strip_tags($lastNews->newstitle);
-
-                            //$newsslug = substr($newsslug, 0, strrpos($newsslug, ' '));
-
-
-
-                            $newsslugfilter = str_replace(' ', '-', $newsslug);
-
-                            $newsslugfilter = str_replace(',', '', $newsslugfilter);
-                            ?>
-
-                            <div class="thumb-latest-posts tav_dividr">
-
-                                <div class="media"> 
-
-                                    <div class="p-content">
-
-                                        <h3>
-                                            <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}">{{$lastNews->newstitle}}</a>
-                                        </h3>
-
-                                        <span>
-
-                                            <?php
-                                            $busRow = strip_tags($lastNews->newsdetails);
-
-                                            if (strlen($busRow) > 100) {
-
-                                                $stringCuth = substr($busRow, 0, 100);
-
-                                                $busRow = substr($stringCuth, 0, strrpos($stringCuth, ' ')) . '...';
-                                            }
-
-                                            echo $busRow;
-                                            ?>
-
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <?php
-                            $n++;
-                        }
-                    }
-                    ?>
-
-
-                </div>
-
-
-
-
-
-
-
-                <div id="menu1" class="tab-pane fade">
-
-                    <?php
-                    $n = 0;
-
-                    if (sizeof($nirbachito) > 0) {
-
-                        foreach ($nirbachito as $lastNews) {
-
-                            $newsslug = strip_tags($lastNews->newstitle);
-
-                            //$newsslug = substr($newsslug, 0, strrpos($newsslug, ' '));
-
-
-
-                            $newsslugfilter = str_replace(' ', '-', $newsslug);
-
-                            $newsslugfilter = str_replace(',', '', $newsslugfilter);
-                            ?>
-
-                            <div class="thumb-latest-posts tav_dividr">
-
-                                <div class="media"> 
-
-                                    <div class="p-content">
-
-                                        <h3>
-                                            <a href="{{URL('/'.$lastNews->newsid.'/'.$newsslugfilter)}}">{{$lastNews->newstitle}}</a>
-                                        </h3>
-
-                                        <span>
-
-                                            <?php
-                                            $busRow = strip_tags($lastNews->newsdetails);
-
-                                            if (strlen($busRow) > 100) {
-
-                                                $stringCuth = substr($busRow, 0, 100);
-
-                                                $busRow = substr($stringCuth, 0, strrpos($stringCuth, ' ')) . '...';
-                                            }
-
-                                            echo $busRow;
-                                            ?>
-
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <?php
-                            $n++;
-                        }
-                    }
-                    ?>
-
-                </div>
-
-                <div id="menu2" class="tab-pane fade">
-
-                    <!--<h3>Menu 2</h3>
-
-                    <p>Some content in menu 2.</p>-->
-
-                </div>
-
-            </div>
-
-
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item">
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>With a Touch of <span>Kindness.</span></h3>
+            <p>Child Care Treatments</p>
+            <h6>Our Medical Center is the preferred choice for diplomats and employees from 64 embassies, consulates and UN agencies, as well as private patients from over 60 countries.</h6>
+          </div>
         </div>
-
-
+      </div>
+      <div class="item item2">
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>With a Touch of <span>Kindness.</span></h3>
+            <p>Child Care Treatments</p>
+            <h6>Our Medical Center is the preferred choice for diplomats and employees from 64 embassies, consulates and UN agencies, as well as private patients from over 60 countries.</h6>
+          </div>
+        </div>
+      </div>
+      <div class="item item3 active">
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>With a Touch of <span>Kindness.</span></h3>
+            <p>Child Care Treatments</p>
+            <h6>Our Medical Center is the preferred choice for diplomats and employees from 64 embassies, consulates and UN agencies, as well as private patients from over 60 countries.</h6>
+          </div>
+        </div>
+      </div>
+      <div class="item item4">
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>With a Touch of <span>Kindness.</span></h3>
+            <p>Child Care Treatments</p>
+            <h6>Our Medical Center is the preferred choice for diplomats and employees from 64 embassies, consulates and UN agencies, as well as private patients from over 60 countries.</h6>
+          </div>
+        </div>
+      </div>
     </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="fa fa-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="fa fa-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!-- The Modal -->
+  </div>
+  <!--//banner -->
+  <!-- about -->
+  <div class="agile-about w3ls-section">
+  <!-- about-bottom -->
+  <div class="agileits-about-btm">
+  <h3 class="heading-agileinfo">Welcome To Our Clinic!<span>We offer extensive medical procedures to outbound and inbound patients.</span></h3>
+    <div class="container">
+      <div class="w3-flex">
+      <div class="col-md-4 col-sm-4 ab1 agileits-about-grid1">
+        <h4 class="agileinfo-head">For Adults</h4>
+        <p>You can call our highly experienced clinical team if your child, teenager or family is going through difficulties.</p>
+        <h5>ANXIETY </h5>
+        <h5>DEPRESSION</h5>
+        <h5>ADHD </h5>
+        <h5>BIPOLAR DISORDER</h5>
+        <h5>A – Z OF ISSUES</h5>
+      </div>
+      <div class="col-md-4 col-sm-4 ab1 agileits-about-grid2">
+        
+        <h4 class="agileinfo-head">For Children</h4>
+        <p>You can call our highly experienced clinical team if your child, teenager or family is going through difficulties.</p>
+        <h5>ADHD </h5>
+        <h5>ASPERGERS AND AUTISM</h5>
+        <h5>DEPRESSION</h5>
+        <h5>ANXIETY DISORDERS</h5>
+        <h5>A – Z OF ISSUES</h5>
+      </div>
+      <div class="col-md-4 col-sm-4 ab1 agileits-about-grid3">
+        
+        <h4 class="agileinfo-head">For Business</h4>
+        <p>You can call our highly experienced clinical team if your child, teenager or family is going through difficulties.</p>
+        <h5>MEDICO LEGAL REPORTS </h5>
+        <h5>OCCUPATIONAL HEALTH</h5>
+        <h5>LOCUMS AND STAFFING</h5>
+        <h5>NEUROPSYCHOLOGICAL ASSESSMENTS</h5>
+        <h5>MENTAL CAPACITY ASSESSMENTS</h5>
+      </div>
+      <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <!-- //about-bottom -->
 </div>
+<!-- emergency -->
+<div class="emergency_cases_w3ls">
+<div class="emergency_cases_bt">
+  <div class="container">
+  <div class="emergency_cases_top">
+    <div class="col-md-6 emergency_cases_w3ls_left">
+      <h4>Opening Hours</h4>
+      <h6>Monday - Friday&nbsp;<span class="eme">8.00 - 18.00</span></h6>
+      <h6>Monday - Saturday&nbsp;<span class="eme">9.00 - 17.00</span></h6>
+      <h6>Monday - Sunday&nbsp;<span class="eme">9.00 - 15.00</span></h6>
+    </div>
+    <div class="col-md-6 emergency_cases_w3ls_right">
+      <h4>Emergency Cases</h4>
+      <h5><i class="fa fa-phone" aria-hidden="true"></i>1230456789</h5>
+      <p>Your treatment plan is designed for steady progress, with every phase promptly implemented.</p>
+    </div>
+    
+    <div class="clearfix"></div>
+    </div>
+  </div>
+  </div>
+</div>
+<!-- //emergency -->
+<!-- services -->
+<div class="services">
+<div class="container">
+    <h3 class="heading-agileinfo">Therapies & Treatments<span>We offer extensive medical procedures to outbound and inbound patients.</span></h3>
+  
+    <div class="services-top-grids">
+      <div class="col-md-4">
+        <div class="grid1">
+          <i class="fa fa-heartbeat" aria-hidden="true"></i>
+          <h4>Anxiety</h4>
+          <p>Lorem ipsum dolor sit amet, Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="grid1">
+          <i class="fa fa-user-md" aria-hidden="true"></i>
+          <h4>Executive Coaching</h4>
+          <p>Lorem ipsum dolor sit amet, Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="grid1">
+          <i class="fa fa-wheelchair-alt" aria-hidden="true"></i>
+          <h4>Depression</h4>
+          <p>Lorem ipsum dolor sit amet, Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="services-bottom-grids">
+      <div class="col-md-4">
+        <div class="grid1">
+          <i class="fa fa-medkit" aria-hidden="true"></i>
+          <h4>Relationships</h4>
+          <p>Lorem ipsum dolor sit amet, Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="grid1">
+          <i class="fa fa-hospital-o" aria-hidden="true"></i>
+          <h4>Stress Management</h4>
+          <p>Lorem ipsum dolor sit amet, Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="grid1">
+          <i class="fa fa-ambulance" aria-hidden="true"></i>
+          <h4>Support Group</h4>
+          <p>Lorem ipsum dolor sit amet, Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<!-- //services -->
+<!-- Clients -->
+<div class="tesimonials">
+<div class="tesimonials_tp">
+    <div class="container">
+      <div class="tittle_head_w3layouts">
+        <h3 class="heading-agileinfo te">What Clients Say<span class="te">We offer extensive medical procedures to outbound and inbound patients.</span></h3>
+      </div>
+      <div class="inner_sec_info_agileits_w3">
+        <div class="test_grid_sec">
+          <div class="col-md-offset-2 col-md-8">
+            <div class="carousel slide two" data-ride="carousel" id="quote-carousel">
+              <!-- Bottom Carousel Indicators -->
+              <ol class="carousel-indicators two">
+                <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#quote-carousel" data-slide-to="1"></li>
+                <li data-target="#quote-carousel" data-slide-to="2"></li>
+              </ol>
 
+              <!-- Carousel Slides / Quotes -->
+              <div class="carousel-inner">
+
+                <!-- Quote 1 -->
+                <div class="item active">
+                  <blockquote>
+                    <div class="test_grid">
+                      <div class="col-sm-3 text-center test_img">
+                        <img src="images/ts1.jpg" alt=" " class="img-responsive" />
+
+                      </div>
+                      <div class="col-sm-9 test_img_info">
+                        <p>Maecenas quis neque libero. Class aptent taciti.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                          auctor nec lacus ut tempor. Mauris.</p>
+                        <h6>Sara Lisbon</h6>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+                <!-- Quote 2 -->
+                <div class="item">
+                  <blockquote>
+                    <div class="test_grid">
+                      <div class="col-sm-3 text-center test_img">
+                        <img src="images/ts2.jpg" alt=" " class="img-responsive" />
+                      </div>
+                      <div class="col-sm-9 test_img_info">
+                        <p>Lorem ipsum dolor sit amet. Class aptent taciti.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                          auctor nec lacus ut tempor. Mauris.</p>
+                        <h6>Jane Wearne</h6>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+                <!-- Quote 3 -->
+                <div class="item">
+                  <blockquote>
+                    <div class="test_grid">
+                      <div class="col-sm-3 text-center test_img">
+                        <img src="images/ts3.jpg" alt=" " class="img-responsive" />
+                      </div>
+                      <div class="col-sm-9 test_img_info">
+                        <p>Maecenas quis neque libero. Class aptent taciti.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                          auctor nec lacus ut tempor. Mauris.</p>
+                        <h6>Alice Williams</h6>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+
+              <!-- Carousel Buttons Next/Prev -->
+              <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+              <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //Clients -->
+<!--/icons-->
+  <div class="banner-bottom">
+    <div class="container">
+      <div class="tittle_head_w3layouts">
+        <h3 class="heading-agileinfo">Case Studies<span>We offer extensive medical procedures to outbound and inbound patients.</span></h3>
+      </div>
+      <div class="inner_sec_info_agileits_w3">
+        <div class="col-md-4 grid_info">
+          <div class="icon_info">
+            <img src="images/g4.jpg" alt=" " class="img-responsive">
+            <h5>Nutrition Reference</h5>
+            <p>Lorem ipsum dolor sit amet,vehicula vel sapien et, feugiat sapien amet.</p>
+            <a href="#" class="read-agileits" data-toggle="modal" data-target="#myModal">Read More</a>
+          </div>
+        </div>
+        <div class="col-md-4 grid_info">
+          <div class="icon_info">
+            <img src="images/g7.jpg" alt=" " class="img-responsive">
+            <h5>Injury Prevention</h5>
+            <p>Lorem ipsum dolor sit amet,vehicula vel sapien et, feugiat sapien amet.</p>
+            <a href="#" class="read-agileits" data-toggle="modal" data-target="#myModal">Read More</a>
+          </div>
+        </div>
+        <div class="col-md-4 grid_info">
+          <div class="icon_info">
+            <img src="images/g6.jpg" alt=" " class="img-responsive">
+            <h5>Catheterization Lab</h5>
+            <p>Lorem ipsum dolor sit amet,vehicula vel sapien et, feugiat sapien amet.</p>
+            <a href="#" class="read-agileits" data-toggle="modal" data-target="#myModal">Read More</a>
+          </div>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <!--//icons-->
 
 @endsection
 

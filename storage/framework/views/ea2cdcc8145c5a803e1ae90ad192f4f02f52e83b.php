@@ -9,8 +9,8 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="{{ URL::asset('frontend_source/images/logo.png') }}">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="shortcut icon" href="<?php echo e(URL::asset('frontend_source/images/logo.png')); ?>">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
         <title> Auroraskinbd</title>
         <script type="application/x-javascript">
             // addEventListener("load", function () {
@@ -23,10 +23,13 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
         </script>
 
         <!-- Styles -->
-        {!!Html::style('frontend_source/css/font-awesome.css')!!}
-        {!!Html::style('frontend_source/css/bootstrap.css')!!}
-        {!!Html::style('frontend_source/css/appointment_style.css')!!}
-        {!!Html::style('frontend_source/css/style.css')!!} 
+        <?php echo Html::style('frontend_source/css/font-awesome.css'); ?>
+
+        <?php echo Html::style('frontend_source/css/bootstrap.css'); ?>
+
+        <?php echo Html::style('frontend_source/css/appointment_style.css'); ?>
+
+        <?php echo Html::style('frontend_source/css/style.css'); ?> 
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet"> 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
@@ -37,14 +40,14 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
             <div class="container">
                 <div class="header_left">
                     <ul>
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{$systems->location}}</li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i>  {{$systems->phone}}</li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:{{$systems->email}}">{{$systems->email}}</a></li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo e($systems->location); ?></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i>  <?php echo e($systems->phone); ?></li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:<?php echo e($systems->email); ?>"><?php echo e($systems->email); ?></a></li>
                     </ul>
                 </div>
                 <div class="header_right">
                     <ul class="forms_right">
-                        <li><a href="{{url('/')}}/appointment"> Make an Appointment</a> </li>
+                        <li><a href="<?php echo e(url('/')); ?>/appointment"> Make an Appointment</a> </li>
                     </ul>
 
                 </div>
@@ -61,7 +64,7 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                        <a class="navbar-brand" href="{{url('/')}}">
+                        <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
                             <h1><span class="fa fa-stethoscope" aria-hidden="true"></span>Auroraskin </h1>
                         </a>
                     </div>
@@ -69,24 +72,24 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <nav>
                             <ul class="nav navbar-nav">
-                                <li><a href="{{url('/')}}" class="active">Home</a></li>
-                                <li><a href="{{url('/')}}/about-us">About</a></li>
+                                <li><a href="<?php echo e(url('/')); ?>" class="active">Home</a></li>
+                                <li><a href="<?php echo e(url('/')); ?>/about-us">About</a></li>
                                 
-                                <li><a href="{{url('/')}}/consultants">Consultant</a></li>
-                                <li><a href="{{url('/')}}/services">Services</a></li>
+                                <li><a href="<?php echo e(url('/')); ?>/consultants">Consultant</a></li>
+                                <li><a href="<?php echo e(url('/')); ?>/services">Services</a></li>
 
-                                <li><a href="{{url('/')}}/gallery">Gallery</a></li>
+                                <li><a href="<?php echo e(url('/')); ?>/gallery">Gallery</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{url('/')}}">Codes</a></li>
+                                        <li><a href="<?php echo e(url('/')); ?>">Codes</a></li>
                                         <li class="divider"></li>
-                                        <li><a href="{{url('/')}}">Icons</a></li>
+                                        <li><a href="<?php echo e(url('/')); ?>">Icons</a></li>
                                         <li class="divider"></li>
                                         
                                     </ul>
                                 </li>
-                                <li><a href="{{url('/')}}/contact-us">Contact Us</a></li>
+                                <li><a href="<?php echo e(url('/')); ?>/contact-us">Contact Us</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -97,14 +100,14 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
         </div>
     </div>
 
-    @yield('contant') 
+    <?php echo $__env->yieldContent('contant'); ?> 
 
     <!-- footer -->
     <div class="footer_top_agile_w3ls">
         <div class="container">
             <div class="col-md-3 footer_grid">
                 <h3>About Us</h3>
-                <p>{{$systems->aboutus}}                </p>
+                <p><?php echo e($systems->aboutus); ?>                </p>
                 
             </div>
             <div class="col-md-3 footer_grid">
@@ -130,9 +133,9 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
             <div class="col-md-3 footer_grid">
                 <h3>Contact Info</h3>
                 <ul class="address">
-                    <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{$systems->location}}</li>
-                    <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">{{$systems->email}}</a></li>
-                    <li><i class="fa fa-phone" aria-hidden="true"></i>{{$systems->phone}}</li>
+                    <li><i class="fa fa-map-marker" aria-hidden="true"></i><?php echo e($systems->location); ?></li>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com"><?php echo e($systems->email); ?></a></li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i><?php echo e($systems->phone); ?></li>
                 </ul>
             </div>
             <div class="col-md-3 footer_grid ">
@@ -151,7 +154,7 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
         </div>
     </div>
     <div class="footer_wthree_agile">
-        <p>© {{$systems->year}}  {{$systems->name}} . All rights reserved | Design by <a href="#">{{$systems->name}}</a></p>
+        <p>© <?php echo e($systems->year); ?>  <?php echo e($systems->name); ?> . All rights reserved | Design by <a href="#"><?php echo e($systems->name); ?></a></p>
     </div>
     <!-- //footer -->
     <!-- bootstrap-modal-pop-up -->
@@ -159,7 +162,8 @@ $systems= DB::table('auro_systems')->where('id',1)->first();
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    {{$systems->name}}
+                    <?php echo e($systems->name); ?>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>                        
                 </div>
                     <div class="modal-body">

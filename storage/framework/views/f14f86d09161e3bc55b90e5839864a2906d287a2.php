@@ -1,6 +1,4 @@
-@extends('frontend.fontend_mastar')
-
-@section('contant')
+<?php $__env->startSection('contant'); ?>
  <?php 
 $what_we_do="Cosmetic plastic surgery includes surgical and nonsurgical procedures that enhance and reshape structures of the body to 
 improve appearance and confidence. Healthy individuals with a positive outlook and realistic expectations are appropriate candidates for 
@@ -70,22 +68,22 @@ try to fit an ideal image. Because it is elective, cosmetic surgery is usually n
 
     <div class="row">
       <div class="col-md-6 about-w3right">
-        <img src="{{asset('/frontend_source/images')}}/g6.jpg" class="img-responsive" alt="" style="padding:10px">
+        <img src="<?php echo e(asset('/frontend_source/images')); ?>/g6.jpg" class="img-responsive" alt="" style="padding:10px">
       </div>
       <div class="col-md-6 about-w3left">
           <h4 style="color: orange; font-size:22px;">What We Do</h4>
-         <p class="text-justify">{{$what_we_do}}</p>
+         <p class="text-justify"><?php echo e($what_we_do); ?></p>
       </div>
     </div>
 
 
     <div class="row">
       <div class="col-md-6 about-w3right">
-        <img src="{{asset('/frontend_source/images')}}/g4.jpg" class="img-responsive" alt="" style="padding:10px">
+        <img src="<?php echo e(asset('/frontend_source/images')); ?>/g4.jpg" class="img-responsive" alt="" style="padding:10px">
       </div>
       <div class="col-md-6 about-w3left">
           <h4 style="color: orange; font-size:22px;">How It Works</h4>
-         <p class="text-justify">{{$what_we_do}}</p>
+         <p class="text-justify"><?php echo e($what_we_do); ?></p>
       </div>
     </div>
 
@@ -94,7 +92,9 @@ try to fit an ideal image. Because it is elective, cosmetic surgery is usually n
       <div class="clearfix"> </div>
     </div>
   </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('frontend.fontend_mastar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

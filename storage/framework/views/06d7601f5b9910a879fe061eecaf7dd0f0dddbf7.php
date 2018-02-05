@@ -1,6 +1,4 @@
-@extends('frontend.fontend_mastar')
-
-@section('contant')  
+<?php $__env->startSection('contant'); ?>  
  <style type="text/css">
 .ab1{margin: 10px; }
  </style>
@@ -264,7 +262,9 @@
 <!-- //Clients -->
  
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('frontend.fontend_mastar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

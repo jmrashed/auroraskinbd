@@ -1,6 +1,4 @@
-@extends('frontend.fontend_mastar')
-
-@section('contant')  
+<?php $__env->startSection('contant'); ?>  
 
 
 <!-- banner -->
@@ -15,7 +13,8 @@
             <h2 class="heading-agileinfo">Mail Us<span>We offer extensive medical procedures to outbound and inbound patients.</span></h2>
             <div class="contact-form">
                 <form method="post" action="#">
-                    {!! Form::open(array('url' => '/sendmail', 'method' => 'post', 'class' => 'cmxform form-horizontal tasi-form','files' => true )) !!}
+                    <?php echo Form::open(array('url' => '/sendmail', 'method' => 'post', 'class' => 'cmxform form-horizontal tasi-form','files' => true )); ?>
+
 
                     <div class="left_form">
                         <div>
@@ -42,7 +41,8 @@
                     </div>
                     <div class="clearfix"></div>
 
-                    {!! Form::close() !!}
+                    <?php echo Form::close(); ?>
+
             </div>
         </div>
 
@@ -56,7 +56,9 @@
 </div>
 <!-- //map -->
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('frontend.fontend_mastar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

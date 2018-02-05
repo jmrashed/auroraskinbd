@@ -1,6 +1,4 @@
-@extends('frontend.fontend_mastar')
-
-@section('contant')
+<?php $__env->startSection('contant'); ?>
 <style type="text/css">
 ul{ font-family: "Times New Roman", Times, serif;}
 li{ font-family: "Times New Roman", Times, serif;}
@@ -72,7 +70,9 @@ a{ font-family: "Times New Roman", Times, serif;}
     <div class="clearfix"></div>
   </div>
 </div> 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('frontend.fontend_mastar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
